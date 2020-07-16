@@ -1,34 +1,58 @@
+/* 
+    @Author Momo, Jaye, Karen
+    07/16/2020
+    Team Name: MKJ
+    Theme: Peaches!
+*/
 
-
+/* Background Picture */
 body {     
     background-image: url(https://i.pinimg.com/564x/77/93/bb/7793bb8d347640af50da70435ea0befd.jpg);
 }
 
+/* Peach Logo in the Header */
 .peachLogo {
+    position: fixed;
     height: 5%; width: 5%;
 }
 
+/* 'Sign up page' */
 .signupTitle {
     font-size: 30px;
     text-align: center;
 }
 
+/* Header Styling */
 .header {  
+    position: fixed; 
+    height: 5%; width: 100%;  
     padding: 10px;  
     text-align: center;  
-    background: #1abc9c;  
+    background: #bfdfb1;  
     color: white;  
-    font-size: 30px;
 }
 
+/* Footer Styling */
+.footer {  
+    position: fixed;  
+    left: 0;  bottom: 0;  
+    height: 5%; width: 100%;  
+    background-color:#bfdfb1;  
+    color: white;  
+    text-align: center;
+}
+
+/* Body of all the input ex.] Username, Password, Confirm Password, Email */
 .grid {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
+    padding-left: 7%; padding-right: 7%;
 }
 
+/* Styles div */
 div {
     border-radius: 10px;
     padding: 10px;
-    background-color: white;
+    background-color: #ffcac1;
 }
