@@ -56,3 +56,10 @@ div {
     padding: 10px;
     background-color: #ffcac1;
 }
+
+/* &check; */
+/*
+.userIncorrect::after{
+    &check;
+}
+*/
