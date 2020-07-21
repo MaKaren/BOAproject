@@ -12,13 +12,15 @@ body {
 
 /* Peach Logo in the Header */
 .peachLogo {
+    /* Lol this peach logo is messed up. Gotta fix it at some point. */
     position: fixed;
     height: 5%; width: 5%;
+    transform: translate(-50%, 0%);
 }
 
 /* 'Sign up page' */
 .signupTitle {
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -26,7 +28,7 @@ body {
 .header {  
     position: fixed; 
     height: 5%; width: 100%;  
-    padding: 10px;  
+    padding: 5px;  
     text-align: center;  
     background: #bfdfb1;  
     color: white;  
@@ -36,9 +38,9 @@ body {
 .footer {  
     position: fixed;  
     left: 0;  bottom: 0;  
-    height: 5%; width: 100%;  
+    height: 3%; width: 100%;  
     background-color:#bfdfb1;  
-    color: white;  
+    color: rgb(39, 32, 32);  
     text-align: center;
 }
 
@@ -47,7 +49,7 @@ body {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    padding-left: 7%; padding-right: 7%;
+    padding-left: 4%; padding-right: 4%;
 }
 
 /* Styles div */
@@ -63,3 +65,14 @@ div {
     &check;
 }
 */
+
+/* We can make these into a bubble on the side when 
+    hovering over the box later in the project */
+.userIncorrect, .passwordIncorrect, .confirmPasswordIncorrect, .emailIncorrect {
+    font-size: 10px;
+    color: darkslateblue;
+}
+
+div > form > p > label {
+    font-size: 15px;
+}

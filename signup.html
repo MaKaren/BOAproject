@@ -20,25 +20,41 @@
         <!-- Sign-up -->
             <div class='grid'>
                 <form id='inputForm'>
-                <p class='signupTitle'> Sign-up page</p>
-                <!-- Username -->
-                <p><label> Username: </label></p>
-                <p></p><input id='myUsername' type='text' name='username'></p>
-                <p class="userIncorrect" id="userTag"> Username needs to be between 8-20 characters. </p>
-                <br>
-                <!-- Password -->
-                <p><label> Password: </label></p>
-                <p><input id='myPassword' type='password' name='password'></p>
-                <br>
-                <p><label> Confirm Password: </label></p>
-                <p><input id='myConfirmPassword' type='password' name='confirmPassword'></p>
-                <br>
-                <!-- Email -->
-                <p><label> Email: </label></p>
-                <p><input id='myEmail' type='email' name='email'></p>
-                <br>
-                <!-- Submit button -->
-                <p><input id='mySubmit' value='Sign-Up' type='submit'></p>
+                    <p class='signupTitle'> Sign-up page</p>
+                    
+                    <!-- Username -->
+                    <p><label> Username: </label></p>
+                    <p></p><input id='myUsername' type='text' name='username'></p>
+                    <ul>
+                        <li><p class='userIncorrect' id='userTag'> Username needs to be between 8 - 20 characters. </p></li>
+                    </ul>
+
+                    <!-- Password -->
+                    <p><label> Password: </label></p>
+                    <p><input id='myPassword' type='password' name='password'></p>
+                    <ul>
+                        <li><p class='passwordIncorrect' id='passwordTag-1'> Password must be between 8 - 20 characters. </p></li>
+                        <li><p class='passwordIncorrect' id='passwordTag-2'> Must contain at least 1 number, 1 uppercase letter and 1 symbol. </p></li>
+                        <li><p class='passwordIncorrect' id='passwordTag-3'> Not repeat the same number or letter more than 3 times in a row. </p></li>
+                        <li><p class='passwordIncorrect' id='passwordtag-4'> Special characters/symbols not allowed: @#*()+={}/?~,.-_ </p></li>
+                    </ul>
+
+                    <!-- Confirm Password -->
+                    <p><label> Confirm Password: </label></p>
+                    <p><input id='myConfirmPassword' type='password' name='confirmPassword'></p>
+                    <ul>
+                        <li><p class='confirmPasswordIncorrect' id='confirmPasswordTag'> Make sure your password matches. </p></li>
+                    </ul>
+
+                    <!-- Email -->
+                    <p><label> Email: </label></p>
+                    <p><input id='myEmail' type='email' name='email'></p>
+                    <ul>
+                        <li><p class='emailIncorrect' id='emailTag'> Make sure your email is a valid email. </p></li>
+                    </ul>
+                    
+                    <!-- Submit button -->
+                    <p><input id='mySubmit' value='Sign-Up' type='submit'></p>
                 </form>
             </div>
         <!-- Footer -->
