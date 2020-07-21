@@ -71,8 +71,36 @@ div {
 .userIncorrect, .passwordIncorrect, .confirmPasswordIncorrect, .emailIncorrect {
     font-size: 10px;
     color: darkslateblue;
+    margin: 0 0;
+   
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+
 }
 
 div > form > p > label {
     font-size: 15px;
+}
+
+.userIncorrect::after, .passwordIncorrect::after, .confirmPasswordIncorrect::after, .emailIncorrect::after {
+
+    content: '\2717';
+
+}
+
+.userCorrect, .passwordCorrect, .confirmPasswordCorrect, .emailCorrect {
+ 
+    font-size: 10px;
+    color: darkslateblue;
+    margin: 0 0;
+   
+
+}
+
+.userCorrect::after, .passwordCorrect::after, .confirmPasswordCorrect::after, .emailCorrect::after {
+
+    content: '\2713';
 }
