@@ -41,15 +41,15 @@ function makeAccount(event) {
     console.log("emailRecieved", emailRecieved.value);
 // ==================================================================
 
-    event.preventDefault();
+event.preventDefault();
 // Check for Username
     if(userRecieved.value.length >= 8 && userRecieved.value.length <= 20){
         document.getElementById('userTag').innerHTML = userRecieved.value;
-    } else if (userRecieved.value.length >= 8){
+    } else if (userRecieved.value.length <= 8){
         document.getElementById('userTag').innerHTML = 'Your username is too short.'
         // Use class='userIncorrect' = true (true that it's incorrect and doesn't work)
     // != 0 is to prevent default from changing when there's no username input
-    } else if (userRecieved.value.length <= 20 && userRecieved.value.length != 0){ 
+    } else if (userRecieved.value.length > 20 && userRecieved.value.length != 0){ 
         document.getElementById('userTag').innerHTML = 'Your username is too long.'
         // Use class='userIncorrect' = true (true that it's incorrect and doesn't work)
     }
@@ -58,11 +58,11 @@ function makeAccount(event) {
     if (passRecieved.value.length >= 8 && passRecieved.value.length <= 20){
         // Checking if this will work - in the end we will make sure the password isn't visiable
         document.getElementById('passwordTag-1').innerHTML = passRecieved.value;
-    } else if (passRecieved.value.length >= 8){
+    } else if (passRecieved.value.length <= 8){
         document.getElementById('passwordTag-1').innerHTML = 'Your password is too short.';
         // Use class='passwordIncorrect' = true (true that it's incorrect and doesn't work)
     // != 0 is to prevent default from changing when there's no password input
-    } else if (passRecieved.value.length <= 20 && passRecieved.value.length != 0){
+    } else if (passRecieved.value.length >= 20 && passRecieved.value.length != 0){
         document.getElementById('passwordTag-1').innerHTML = 'Your password is too long.';
         // Use class='passwordIncorrect' = true (true that it's incorrect and doesn't work)
     }

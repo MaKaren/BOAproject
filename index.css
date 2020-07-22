@@ -70,9 +70,25 @@ div {
     hovering over the box later in the project */
 .userIncorrect, .passwordIncorrect, .confirmPasswordIncorrect, .emailIncorrect {
     font-size: 10px;
-    color: darkslateblue;
+    color: rgb(165, 26, 45);
 }
 
 div > form > p > label {
     font-size: 15px;
 }
+
+/* New thing */
+.userIncorrect::after, .passwordIncorrect::after, .confirmPasswordIncorrect::after, .emailIncorrect::after {
+    content: '\2717';
+}
+ 
+.userCorrect, .passwordCorrect, .confirmPasswordCorrect, .emailCorrect {
+    font-size: 10px;
+    color: rgb(165, 26, 45);;
+    margin: 0 0;
+}
+ 
+.userCorrect::after, .passwordCorrect::after, .confirmPasswordCorrect::after, .emailCorrect::after {
+    content: '\2713';
+}
+
