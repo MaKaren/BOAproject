@@ -56,49 +56,60 @@ function testPassword(event) {
     let checkPass2 = false;
     let checkPass3 = false;
     let checkPass4 = false;
+
     // Check for password length
     if (passRecieved.value.length >= 8 && passRecieved.value.length <= 20){
         // Checking if this will work - in the end we will make sure the password isn't visiable
         passTagRevieved1.innerHTML = passRecieved.value;
-        passTagRevieved1.classList.add('passCorrect-1').classList.remove('passIncorrect-1');
+        passTagRevieved1.classList.add('passCorrect-1');
+        passTagRevieved1.classList.remove('passIncorrect-1');
         checkPass1 = true;
     } else if (passRecieved.value.length <= 8){
         passTagRevieved1.innerHTML = 'Your password is too short.';
-        passTagRevieved1.classList.add('passIncorrect-1').classList.remove('passCorrect-1');
+        passTagRevieved1.classList.add('passIncorrect-1');
+        passTagRevieved1.classList.remove('passCorrect-1');
         checkPass1 = false;
         // != 0 is to prevent default from changing when there's no password input
     } else if (passRecieved.value.length >= 20 && passRecieved.value.length != 0){
         passTagRevieved1.innerHTML = 'Your password is too long.';
-        passTagRevieved1.classList.add('passIncorrect-1').classList.remove('passCorrect-1');
+        passTagRevieved1.classList.add('passIncorrect-1');
+        passTagRevieved1.classList.remove('passCorrect-1');
         checkPass1 = false;
     }
 
     // Check for password 1 number, 1 uppercase, 1 symbol
-    // let regexUpper = /[[:upper:]]/gm;
-    // let regexNumber = /\d{1}/gm;
-    // let regexSymbol = /\W+/g;
-    // // passRecieved.value.search(regexUpper) && passRecieved.value.search(regexNumber) && passRecieved.value.search(regexSymbol
-    // if (!passRecieved.value.search()) {
-    //     passTagRevieved2.classList.add('passCorrect-2'); 
-    //     passTagRevieved2.classList.remove('passIncorrect-2'); 
-    //     checkPass2 = true;
-    // } else {
-    //     passTagRevieved2.classList.add('passIncorrect-2'); 
-    //     passTagRevieved2.classList.remove('passCorrect-2'); 
-    //     checkPass2 = false;
-    // }
+    let regexNumber = /\d{1}/g;
+    let regexUpper = /(?=.*[A-Z])/g;
+    let regexSymbol = /\W+/g;
+    // console.log("RegexPass?:", regexUpper.test(passRecieved.value));
+    // console.log(passRecieved.value);
+    if (regexNumber.test(passRecieved.value) && regexUpper.test(passRecieved.value) && regexSymbol.test(passRecieved.value)) {
+        passTagRevieved2.classList.add('passCorrect-2'); 
+        passTagRevieved2.classList.remove('passIncorrect-2'); 
+        checkPass2 = true;
+    } else {
+        passTagRevieved2.classList.add('passIncorrect-2'); 
+        passTagRevieved2.classList.remove('passCorrect-2'); 
+        checkPass2 = false;
+    }
 
     // Check for password doesn't repeat the same number or letter 3 times in a row
-    // let regexRepeat = null;
-    // if (passRecieved.value.search(regexRepeat)) {
-    //     passTagRevieved3.classList.add('passCorrect-3'); 
-    //     passTagRevieved3.classList.remove('passIncorrect-3'); 
-    // } else {
-    //     passTagRevieved3.classList.add('passIncorrect-3'); 
-    //     passTagRevieved3.classList.remove('passCorrect-3'); 
-    // }
+    let regexRepeatNumber = /(\d)\1{2,}/g;
+    // let regexRepeatUpper = null;
+    // let regexRepeatLower = null;
+    console.log("RegexPass?:", regexRepeatNumber.test(passRecieved.value));
+    console.log(passRecieved.value);
+    if (regexRepeatNumber.test(passRecieved.value)) {
+        passTagRevieved3.classList.add('passCorrect-3'); 
+        passTagRevieved3.classList.remove('passIncorrect-3'); 
+        checkPass3 = true;
+    } else {
+        passTagRevieved3.classList.add('passIncorrect-3'); 
+        passTagRevieved3.classList.remove('passCorrect-3'); 
+        checkPass3 = false;
+    }
 
-    if (checkPass1 && checkPass2 && checkPass3 && checkPass3) {
+    if (checkPass1 && checkPass2 && checkPass3 && checkPass4) {
         checkPassword = true;
     } else {
         checkPassword = false;
@@ -110,11 +121,13 @@ function testConfirmPassword(event){
     // != 0 is to prevent default from changing when there's no password input
     if (passRecieved.value == confirmRecieved.value && passRecieved.value.length != 0) {
         confirmPassTagRecieved.innerHTML = 'Matches!: ' + confirmRecieved.value;
-        confirmPassTagRecieved.classList.add('confirmPassCorrect').classList.remove('confirmPassIncorrect');
+        confirmPassTagRecieved.classList.add('confirmPassCorrect');
+        confirmPassTagRecieved.classList.remove('confirmPassIncorrect');
         checkConfirmPassword = true;
     } else {
         confirmPassTagRecieved.innerHTML = 'Your password doesn\'t match: ' + confirmRecieved.value;
-        confirmPassTagRecieved.classList.add('confirmPassIncorrect').classList.remove('confirmPassCorrect');
+        confirmPassTagRecieved.classList.add('confirmPassIncorrect');
+        confirmPassTagRecieved.classList.remove('confirmPassCorrect');
         checkConfirmPassword = false;
     }
 }
