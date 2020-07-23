@@ -24,6 +24,16 @@ body {
     text-align: center;
 }
 
+.passHint {
+    font-size: 10px;
+}
+
+#accountStatus {
+    font-size: 10px;
+    font-weight: bold;
+    color: rgb(165, 26, 45);
+}
+
 /* Header Styling */
 .header {  
     position: fixed; 
