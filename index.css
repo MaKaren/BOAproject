@@ -59,36 +59,45 @@ div {
     background-color: #ffcac1;
 }
 
-/* &check; */
-/*
-.userIncorrect::after{
-    &check;
-}
-*/
-
-/* We can make these into a bubble on the side when 
-    hovering over the box later in the project */
-.userIncorrect, .passwordIncorrect, .confirmPasswordIncorrect, .emailIncorrect {
-    font-size: 10px;
-    color: rgb(165, 26, 45);
-}
-
 div > form > p > label {
     font-size: 15px;
 }
 
-/* New thing */
-.userIncorrect::after, .passwordIncorrect::after, .confirmPasswordIncorrect::after, .emailIncorrect::after {
+/* We can make these into a bubble on the side when 
+    hovering over the box later in the project */
+
+/* Color and format for INCORRECT */
+.userIncorrect, 
+.passIncorrect-1, .passIncorrect-2, .passIncorrect-3, .passIncorrect-4, 
+.confirmPassIncorrect, 
+.emailIncorrect {
+    font-size: 10px;
+    color: rgb(165, 26, 45);
+}
+
+/* X mark - INCORRECT*/
+.userIncorrect::after, 
+.passIncorrect-1::after, .passIncorrect-2::after, .passIncorrect-3::after, .passIncorrect-4::after, 
+.confirmPassIncorrect::after, 
+.emailIncorrect::after {
     content: '\2717';
 }
- 
-.userCorrect, .passwordCorrect, .confirmPasswordCorrect, .emailCorrect {
+
+/* Color and format for CORRECT */
+.userCorrect, 
+.passCorrect-1, .passCorrect-2, .passCorrect-3, .passCorrect-4,
+.confirmPassCorrect, 
+.emailCorrect {
     font-size: 10px;
-    color: rgb(165, 26, 45);;
+    color: rgb(128, 197, 145);
     margin: 0 0;
 }
- 
-.userCorrect::after, .passwordCorrect::after, .confirmPasswordCorrect::after, .emailCorrect::after {
+
+/* Check mark - CORRECT */
+.userCorrect::after, 
+.passCorrect-1::after, .passCorrect-2::after, .passCorrect-3::after, .passCorrect-4::after, 
+.confirmPassCorrect::after, 
+.emailCorrect::after {
     content: '\2713';
 }
 
