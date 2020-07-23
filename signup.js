@@ -6,77 +6,85 @@
 */
 
 // Initialize all the .getElementById for all the inputs
-let formRecieved = document.getElementById("inputForm");
-let userRecieved = document.getElementById("myUsername");
-let passRecieved = document.getElementById("myPassword");
-let confirmRecieved = document.getElementById("myConfirmPassword");
-let emailRecieved = document.getElementById("myEmail");
+let formRecieved = document.getElementById('inputForm');
+let userRecieved = document.getElementById('myUsername');
+let passRecieved = document.getElementById('myPassword');
+let confirmRecieved = document.getElementById('myConfirmPassword');
+let emailRecieved = document.getElementById('myEmail');
 
+// Initialize all the .getElementById for the restrictions for username
+let userTagRecieved = document.getElementById('userTag');
+// Initialize all the .getElementById for the restrictions for password
+let passTagRevieved1 = document.getElementById('passTag-1');
+let passTagRevieved2 = document.getElementById('passTag-2');
+let passTagRevieved3 = document.getElementById('passTag-3');
+let passTagRevieved4 = document.getElementById('passTag-4');
+// Initialize all the .getElementById for the restrictions for confirmation password
+let confirmPassTag = document.getElementById('confirmPassTag');
 
-//  What does this do? - Karen vv ==================================
-// let getUser = document.querySelector("#myUsername");
-// let message = document.querySelector("#userTag");
-
-//function validate(event) {
-//    let inputVar = event.target.value;
-//    console.log("inputVar", inputVar);
-//    if(inputVar.length < 7) {
-//console.log("invalid input");
- //   } else {
-//        message.setAttribute("class", "validUser");
- //   }
-//}
-
- // getUser.addEventListener("change", validate);
-// ==================================================================
- 
 // .addEventListeners
-formRecieved.addEventListener("submit", makeAccount);
+formRecieved.addEventListener('keyup', makeAccount);
 
 function makeAccount(event) {
+// event.preventDefault();
 // What is this? Is it to check in the console? - Karen =============
-    console.log("userRecieved", userRecieved.value);
-    console.log("passRecieved", passRecieved.value);
-    console.log("confirmRecieved", confirmRecieved.value);
-    console.log("emailRecieved", emailRecieved.value);
+    console.log('userRecieved', userRecieved.value);
+    console.log('passRecieved', passRecieved.value);
+    console.log('confirmRecieved', confirmRecieved.value);
+    console.log('emailRecieved', emailRecieved.value);
 // ==================================================================
 
-event.preventDefault();
 // Check for Username
+    // *At some point add an eventListener to do toggle.
     if(userRecieved.value.length >= 8 && userRecieved.value.length <= 20){
-        document.getElementById('userTag').innerHTML = userRecieved.value;
-    } else if (userRecieved.value.length <= 8){
-        document.getElementById('userTag').innerHTML = 'Your username is too short.'
-        // Use class='userIncorrect' = true (true that it's incorrect and doesn't work)
-    // != 0 is to prevent default from changing when there's no username input
-    } else if (userRecieved.value.length > 20 && userRecieved.value.length != 0){ 
-        document.getElementById('userTag').innerHTML = 'Your username is too long.'
-        // Use class='userIncorrect' = true (true that it's incorrect and doesn't work)
+        userTagRecieved.classList.add('userCorrect');
+        userTagRecieved.classList.remove('userIncorrect');
+    } else {
+        userTagRecieved.classList.add('userIncorrect');
+        userTagRecieved.classList.remove('userCorrect');
     }
+    
 // Check for password
     // Check for password length
     if (passRecieved.value.length >= 8 && passRecieved.value.length <= 20){
         // Checking if this will work - in the end we will make sure the password isn't visiable
-        document.getElementById('passwordTag-1').innerHTML = passRecieved.value;
+        passTagRevieved1.innerHTML = passRecieved.value;
+        passTagRevieved1.classList.add('passCorrect-1');
+        passTagRevieved1.classList.remove('passIncorrect-1');
     } else if (passRecieved.value.length <= 8){
-        document.getElementById('passwordTag-1').innerHTML = 'Your password is too short.';
-        // Use class='passwordIncorrect' = true (true that it's incorrect and doesn't work)
-    // != 0 is to prevent default from changing when there's no password input
+        passTagRevieved1.innerHTML = 'Your password is too short.';
+        passTagRevieved1.classList.add('passIncorrect-1');
+        passTagRevieved1.classList.remove('passCorrect-1');
+        // != 0 is to prevent default from changing when there's no password input
     } else if (passRecieved.value.length >= 20 && passRecieved.value.length != 0){
-        document.getElementById('passwordTag-1').innerHTML = 'Your password is too long.';
-        // Use class='passwordIncorrect' = true (true that it's incorrect and doesn't work)
+        passTagRevieved1.innerHTML = 'Your password is too long.';
+        passTagRevieved1.classList.add('passIncorrect-1');
+        passTagRevieved1.classList.remove('passCorrect-1');
     }
 
     // Check for password 1 number, 1 uppercase, 1 symbol
-
+    // let regexUpper = /[[:upper:]]/;
+    // let regexNumber = /d{1}/;
+    // let regexSymbol = /\W/;
+    // // passRecieved.value.search(regexNumber) && passRecieved.value.search(regexSymbol
+    // if (passRecieved.value.search(regexNumber)) {
+    //     passTagRevieved2.classList.add('passCorrect-2'); 
+    //     passTagRevieved2.classList.remove('passIncorrect-2'); 
+    // } else {
+    //     passTagRevieved2.classList.add('passIncorrect-2'); 
+    //     passTagRevieved2.classList.remove('passCorrect-2'); 
+    // }
 
 // Check for confirm password
     // != 0 is to prevent default from changing when there's no password input
     if (passRecieved.value == confirmRecieved.value && passRecieved.value.length != 0) {
-        document.getElementById('confirmPasswordTag').innerHTML = 'Matches!: ' + confirmRecieved.value;
+        confirmPassTag.innerHTML = 'Matches!: ' + confirmRecieved.value;
+        confirmPassTag.classList.add('confirmPassCorrect');
+        confirmPassTag.classList.remove('confirmPassIncorrect');
     } else {
-        document.getElementById('confirmPasswordTag').innerHTML = 'Your password doesn\'t match: ' + confirmRecieved.value;
-        // Use class='confirmPasswordIncorrect' = true (true that it doesn't match and doesn't work)
+        confirmPassTag.innerHTML = 'Your password doesn\'t match: ' + confirmRecieved.value;
+        confirmPassTag.classList.add('confirmPassIncorrect');
+        confirmPassTag.classList.remove('confirmPassCorrect');
     }
 
 // Check for email
