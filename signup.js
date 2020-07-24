@@ -28,7 +28,7 @@ let emailTagRecieved = document.getElementById('emailTag');
 let checkUsername = false;
 let checkPassword = false;
 let checkConfirmPassword = false;
-let checkEmail = false;
+let checkEmail = true;
 
 // .addEventListeners
 formRecieved.addEventListener('keyup', testUsername);
@@ -160,11 +160,24 @@ function testEmail (event){
     }
 }
 
+
+let allUserSave = [];
+
 // Check if the account was successfully made or not
 function makeAccountConfirmation(event) {
+    let userSave = [];
     event.preventDefault();
     if (checkUsername && checkPassword && checkConfirmPassword && checkEmail) {
         document.getElementById('accountStatus').innerHTML = 'Your account has been made'; 
+
+        // Checking for console
+        userSave.push(userRecieved.value);
+        userSave.push(passRecieved.value);
+        userSave.push(emailRecieved.value);
+        allUserSave.push(userSave);
+        console.log(userSave);
+        console.log(allUserSave);
+
     } else {
         document.getElementById('accountStatus').innerHTML = '*Your account could not be made. Make sure to check all the requirements.'
     }
