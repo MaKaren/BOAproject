@@ -77,6 +77,9 @@ function testPassword(event) {
         checkPass1 = false;
     } else {
         passTagRevieved1.innerHTML = 'Password should be between 8 - 20 characters.';
+        passTagRevieved1.classList.add('passIncorrect-1');
+        passTagRevieved1.classList.remove('passCorrect-1');
+        checkPass1 = false;
     }
 
 // Check for password 1 number, 1 uppercase, 1 symbol
