@@ -37,8 +37,8 @@ formRecieved.addEventListener('keyup', testConfirmPassword);
 formRecieved.addEventListener('keyup', testEmail);
 formRecieved.addEventListener('submit', makeAccountConfirmation);
 
-function testUsername(event) {
 // Check for Username
+function testUsername(event) {
     if(userRecieved.value.length >= 8 && userRecieved.value.length <= 20){
         userTagRecieved.classList.add('userCorrect');
         userTagRecieved.classList.remove('userIncorrect');
@@ -49,40 +49,40 @@ function testUsername(event) {
         checkUsername = false;
     }
 }
- 
+
+// Check for password 
 function testPassword(event) {
-// Check for password
     let checkPass1 = false;
     let checkPass2 = false;
     let checkPass3 = false;
     let checkPass4 = false;
 
-    // Check for password length
+// Check for password length
     if (passRecieved.value.length >= 8 && passRecieved.value.length <= 20){
         // Checking if this will work - in the end we will make sure the password isn't visiable
         passTagRevieved1.innerHTML = passRecieved.value;
         passTagRevieved1.classList.add('passCorrect-1');
         passTagRevieved1.classList.remove('passIncorrect-1');
         checkPass1 = true;
-    } else if (passRecieved.value.length <= 8){
+    // != 0 is to prevent default from changing when there's no password input
+    } else if (passRecieved.value.length <= 8 && passRecieved.value.length != 0){
         passTagRevieved1.innerHTML = 'Your password is too short.';
         passTagRevieved1.classList.add('passIncorrect-1');
         passTagRevieved1.classList.remove('passCorrect-1');
         checkPass1 = false;
-        // != 0 is to prevent default from changing when there's no password input
-    } else if (passRecieved.value.length >= 20 && passRecieved.value.length != 0){
+    } else if (passRecieved.value.length >= 20){
         passTagRevieved1.innerHTML = 'Your password is too long.';
         passTagRevieved1.classList.add('passIncorrect-1');
         passTagRevieved1.classList.remove('passCorrect-1');
         checkPass1 = false;
+    } else {
+        passTagRevieved1.innerHTML = 'Password should be between 8 - 20 characters.';
     }
 
-    // Check for password 1 number, 1 uppercase, 1 symbol
+// Check for password 1 number, 1 uppercase, 1 symbol
     let regexNumber = /\d{1}/g;
     let regexUpper = /(?=.*[A-Z])/g;
     let regexSymbol = /\W+/g;
-    // console.log("RegexPass?:", regexUpper.test(passRecieved.value));
-    // console.log(passRecieved.value);
     if (regexNumber.test(passRecieved.value) && regexUpper.test(passRecieved.value) && regexSymbol.test(passRecieved.value)) {
         passTagRevieved2.classList.add('passCorrect-2'); 
         passTagRevieved2.classList.remove('passIncorrect-2'); 
@@ -93,13 +93,10 @@ function testPassword(event) {
         checkPass2 = false;
     }
 
-    // Check for password doesn't repeat the same number or letter 3 times in a row
-    let regexRepeatNumber = /(\d)\1{2,}/g;
-    // let regexRepeatUpper = null;
-    // let regexRepeatLower = null;
-    console.log("RegexPass?:", regexRepeatNumber.test(passRecieved.value));
-    console.log(passRecieved.value);
-    if (regexRepeatNumber.test(passRecieved.value)) {
+// Check for password doesn't repeat the same number or letter 3 times in a row
+    let regexRepeatAny = /(?=.*([a-zA-Z0-9])\1{2})/g;
+    // != 0 is to prevent default from changing when there's no password input
+    if (!regexRepeatAny.test(passRecieved.value) && passRecieved.value.length != 0) {
         passTagRevieved3.classList.add('passCorrect-3'); 
         passTagRevieved3.classList.remove('passIncorrect-3'); 
         checkPass3 = true;
@@ -109,6 +106,20 @@ function testPassword(event) {
         checkPass3 = false;
     }
 
+// Check for password doesn't include these symbols: @#*()+={}/?~,.-_
+    let regexNoTheseSymbol = /(?=.*[-@#*()+={}\/?~,._])/g;
+    // != 0 is to prevent default from changing when there's no password input
+    if (!(regexNoTheseSymbol.test(passRecieved.value)) && passRecieved.value.length != 0){
+        passTagRevieved4.classList.add('passCorrect-4');
+        passTagRevieved4.classList.remove('passIncorrect-4');
+        checkPass4 = true;
+    } else {
+        passTagRevieved4.classList.add('passIncorrect-4');
+        passTagRevieved4.classList.remove('passCorrect-4');
+        checkPass4 = false;
+    }
+
+// If every criteria is met return true for checkPassword
     if (checkPass1 && checkPass2 && checkPass3 && checkPass4) {
         checkPassword = true;
     } else {
@@ -116,8 +127,8 @@ function testPassword(event) {
     }
 }
 
-function testConfirmPassword(event){
 // Check for confirm password
+function testConfirmPassword(event){
     // != 0 is to prevent default from changing when there's no password input
     if (passRecieved.value == confirmRecieved.value && passRecieved.value.length != 0) {
         confirmPassTagRecieved.innerHTML = 'Matches!: ' + confirmRecieved.value;
@@ -132,10 +143,21 @@ function testConfirmPassword(event){
     }
 }
 
+// Check for email validation
 function testEmail (event){
-// Check for email
+    let regexEmail = 'put regex here';
+    if (regexEmail) {
+        emailTagRecieved.classList.add('emailCorrect');
+        emailTagRecieved.classList.remove('emailIncorrect');
+        checkEmail = true;
+    } else {
+        emailTagRecieved.classList.add('emailIncorrect');
+        emailTagRecieved.classList.remove('emailCorrect');
+        checkEmail = false;
+    }
 }
 
+// Check if the account was successfully made or not
 function makeAccountConfirmation(event) {
     event.preventDefault();
     if (checkUsername && checkPassword && checkConfirmPassword && checkEmail) {
