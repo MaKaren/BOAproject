@@ -5,6 +5,10 @@
     Theme: Peaches
 */
 
+// Test Code ===============================
+// let user = [{name: 'Jaye', username: 'JayeUserName', password: 'myPassword7^'}];
+// =========================================
+
 // Initialize all the .getElementById for all the inputs
 let formRecieved = document.getElementById('inputForm');
 let userRecieved = document.getElementById('myUsername');
@@ -28,7 +32,7 @@ let emailTagRecieved = document.getElementById('emailTag');
 let checkUsername = false;
 let checkPassword = false;
 let checkConfirmPassword = false;
-let checkEmail = true;
+let checkEmail = false;
 
 // .addEventListeners
 formRecieved.addEventListener('keyup', testUsername);
@@ -52,6 +56,7 @@ function testUsername(event) {
 
 // Check for password 
 function testPassword(event) {
+    // Test to see if all critera is met
     let checkPass1 = false;
     let checkPass2 = false;
     let checkPass3 = false;
@@ -148,8 +153,8 @@ function testConfirmPassword(event){
 
 // Check for email validation
 function testEmail (event){
-    let regexEmail = 'put regex here';
-    if (regexEmail) {
+    let regexEmail = /(?:[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g;
+    if (regexEmail.test(emailRecieved.value)) {
         emailTagRecieved.classList.add('emailCorrect');
         emailTagRecieved.classList.remove('emailIncorrect');
         checkEmail = true;
@@ -161,24 +166,41 @@ function testEmail (event){
 }
 
 
-let allUserSave = [];
+
 
 // Check if the account was successfully made or not
 function makeAccountConfirmation(event) {
+    let allUserSave = [];
     let userSave = [];
     event.preventDefault();
     if (checkUsername && checkPassword && checkConfirmPassword && checkEmail) {
         document.getElementById('accountStatus').innerHTML = 'Your account has been made'; 
 
-        // Checking for console
-        userSave.push(userRecieved.value);
-        userSave.push(passRecieved.value);
-        userSave.push(emailRecieved.value);
+    // Checking for console
+        let object = {
+            username: userRecieved.value,
+            password: passRecieved.value,
+            email: emailRecieved.value,
+        };
+        userSave.push(object);
+        console.log('userSave:', userSave);
+
         allUserSave.push(userSave);
-        console.log(userSave);
-        console.log(allUserSave);
+        console.log('allUserSave:',allUserSave);
+
+
+    // LocalStorage
+        localStorage.user = JSON.stringify(allUserSave);
+        console.log('JSON Data:', JSON.stringify(allUserSave));
+
+        // Test Code ===================================
+        // Login page:
+        let userGet = JSON.parse(localStorage.user);
+        console.log('userGet:', userGet);
+        // =============================================
 
     } else {
         document.getElementById('accountStatus').innerHTML = '*Your account could not be made. Make sure to check all the requirements.'
     }
 }
+
