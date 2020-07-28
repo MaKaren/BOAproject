@@ -165,9 +165,6 @@ function testEmail (event){
     }
 }
 
-
-
-
 // Check if the account was successfully made or not
 function makeAccountConfirmation(event) {
     let allUserSave = [];
