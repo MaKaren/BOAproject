@@ -185,7 +185,6 @@ function makeAccountConfirmation(event) {
         allUserSave.push(userSave);
         console.log('allUserSave:',allUserSave);
 
-
     // LocalStorage
         localStorage.user = JSON.stringify(allUserSave);
         console.log('JSON Data:', JSON.stringify(allUserSave));
@@ -200,4 +199,3 @@ function makeAccountConfirmation(event) {
         document.getElementById('accountStatus').innerHTML = '*Your account could not be made. Make sure to check all the requirements.'
     }
 }
-
