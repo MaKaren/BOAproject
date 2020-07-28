@@ -111,8 +111,6 @@ div > form > p > label {
 .confirmPassIncorrect, 
 .emailIncorrect {
     font-size: 10px;
-    color: rgb(165, 26, 45);
-}
 
 /* X mark - INCORRECT*/
 .userIncorrect::after, 
@@ -139,4 +137,3 @@ div > form > p > label {
 .emailCorrect::after {
     content: '\2713';
 }
-
