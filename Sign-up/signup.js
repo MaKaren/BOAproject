@@ -40,6 +40,21 @@ formRecieved.addEventListener('keyup', testPassword);
 formRecieved.addEventListener('keyup', testConfirmPassword);
 formRecieved.addEventListener('keyup', testEmail);
 formRecieved.addEventListener('submit', makeAccountConfirmation);
+// .addEventListeners focus
+userRecieved.addEventListener('focus', function (event){
+    document.getElementById('userRequirement').classList.add('show');
+    // event.target.classList.add('show');
+    // console.log('Events: ', event);
+});
+passRecieved.addEventListener('focus', function (event){
+    document.getElementById('passRequirement').classList.add('show');
+});
+confirmRecieved.addEventListener('focus', function (event){
+    document.getElementById('confirmRequirement').classList.add('show');
+});
+emailRecieved.addEventListener('focus', function (event){
+    document.getElementById('emailRequirement').classList.add('show');
+});
 
 // Check for Username
 function testUsername(event) {
