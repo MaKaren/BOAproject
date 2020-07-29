@@ -75,6 +75,10 @@ body {
     display: none;
 }
 
+.show {
+    display: block;
+}
+
 /* Text Manipulation */
 .signupTitle, .loginTitle {
     border-radius: 10px;
@@ -93,8 +97,6 @@ body {
 div > form > p > label {
     font-size: 15px;
 }
-
-
 
 /* We can make these into a bubble on the side when 
     hovering over the box later in the project */
