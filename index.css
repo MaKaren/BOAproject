@@ -51,26 +51,58 @@ body {
 }
 
 /* Content Styling */
-/* .container {
-    display: flex;
-    flex-direction: row;
-    place-items: center;
-    justify-content: space-around;
-    align-content: space-between;
-} */
+.container {
+    display: grid;
+    grid-gap: 10px;
+    width: 100fr; height: 100fr; 
+    border: solid; border-color: lightskyblue; border-width: 10px;
+    grid-template-areas: 
+        "emptyTop emptyTop emptyTop emptyTop"
+        "emptyLeft inputContent requirementContent emptyRight"
+        "emptyBottom emptyBottom emptyBottom emptyBottom";
+}
+.inputContent, .requirementContent, .emptyLeft, .emptyRight, .emptyTop, .emptyBottom {
+    border-radius: 10px;
+    border: solid; border-color: lightskyblue; border-width: 10px;
+}
+
+.emptyLeft, .emptyRight {
+    padding: 20%;
+}
 
 /* Body of all the input ex.] Username, Password, Confirm Password, Email */
-.content {
-    /* order: 1; */
-    position: absolute;
+.inputContent {
+    /* position: absolute;
     top: 50%; left:50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    padding: 10px; padding-left: 5%; padding-right: 5%;
+    padding: 10px; padding-left: 5%; padding-right: 5%; */
+    grid-area: inputContent;
     background-color: #fff6f5ef;
+    
 }
 
-/* Password restriction */
+.requirementContent {
+    grid-area: requirementContent;
+}
+
+.emptyLeft {
+    grid-area: emptyLeft;
+} 
+
+.emptyRight {
+    grid-area: emptyRight;
+}
+
+.emptyTop {
+    grid-area: emptyTop;
+} 
+
+.emptyBottom {
+    grid-area: emptyBottom;
+}
+
+/* Critera */
 .hidden {
     display: none;
 }
