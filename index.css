@@ -84,6 +84,11 @@ body {
 
 .requirementContent {
     grid-area: requirementContent;
+    background-color: #fff6f5ef;
+}
+
+.requirementContent > div {
+    padding-bottom: 10px;
 }
 
 .emptyLeft {

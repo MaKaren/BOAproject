@@ -40,20 +40,34 @@ formRecieved.addEventListener('keyup', testPassword);
 formRecieved.addEventListener('keyup', testConfirmPassword);
 formRecieved.addEventListener('keyup', testEmail);
 formRecieved.addEventListener('submit', makeAccountConfirmation);
-// .addEventListeners focus
-userRecieved.addEventListener('focus', function (event){
+
+// .addEventListeners User focus/blur
+userRecieved.addEventListener('focus', function (){
     document.getElementById('userRequirement').classList.add('show');
-    // event.target.classList.add('show');
-    // console.log('Events: ', event);
 });
+userRecieved.addEventListener('blur', function (){
+    document.getElementById('userRequirement').classList.remove('show');
+});
+// .addEventListeners Password focus/blur
 passRecieved.addEventListener('focus', function (event){
     document.getElementById('passRequirement').classList.add('show');
 });
+passRecieved.addEventListener('blur', function (){
+    document.getElementById('passRequirement').classList.remove('show');
+});
+// .addEventListeners Confirm focus/blur
 confirmRecieved.addEventListener('focus', function (event){
     document.getElementById('confirmRequirement').classList.add('show');
 });
+confirmRecieved.addEventListener('blur', function (){
+    document.getElementById('confirmRequirement').classList.remove('show');
+});
+// .addEventListeners Email focus/blur
 emailRecieved.addEventListener('focus', function (event){
     document.getElementById('emailRequirement').classList.add('show');
+});
+emailRecieved.addEventListener('blur', function (){
+    document.getElementById('emailRequirement').classList.remove('show');
 });
 
 // Check for Username
