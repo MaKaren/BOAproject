@@ -76,7 +76,7 @@ body {
 }
 
 .show {
-    display: show;
+    display: block;
 }
 
 /* Text Manipulation */
