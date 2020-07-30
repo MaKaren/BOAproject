@@ -4,76 +4,61 @@
     Team MKJ
     Theme: Peaches!
  -->
-<!DOCTYPE html>
-<html>
-    <head>
-        <!-- The website tab name -->
-        <title> Momo Klickers: Jar! </title>
-        <!-- Links the .css file to the .html file -->
-        <link href="../index.css" rel="stylesheet">
-    </head>
-    <body>
-        <!-- Header (Green bar with peach on top) -->
-        <div class="header">
-            <!-- <img class='peachLogo' src='https://cdn.pixabay.com/photo/2015/05/01/01/13/peach-747648_1280.png'> -->
-            <p> Momo Klickers: Jars - Sign in Page</p>
-        </div>
-        <div class="container">
-            <!-- Sign-up -->
-            <div class="inputContent">
-                <h2 class="signupTitle"> Sign-up </h2>
-                <form id="inputForm">
-                    <p id="accountStatus"></p>
-                    <!-- Username -->
-                    <p><label> Username: </label></p>
-                    <p></p><input id="myUsername" type="text" name="username"></p>
-                    <!-- Password -->
-                    <p><label> Password: </label></p>
-                    <p><input id="myPassword" type="password" name="password"></p>
-                    <!-- Confirm Password -->
-                    <p><label> Confirm Password: </label></p>
-                    <p><input id="myConfirmPassword" type="password" name="confirmPassword"></p>
-                    <!-- Email -->
-                    <p><label> Email: </label></p>
-                    <p><input id="myEmail" type="email" name="email"></p>
-                    <!-- Submit button -->
-                    <p><input id="mySubmit" value="Sign-Up" type="submit"></p>                    
-                </form>
-            </div>
-            <div class="requirementContent">
-                <!-- Username -->
-                <div id="userRequirement" class="hidden">
-                    <p class="userIncorrect" id="userTag"> Username needs to be between 8 - 20 characters. </p>
-                </div>
-                <!-- Password -->
-                <div id="passRequirement" class="hidden"> 
-                    <p class="passHint"> In order to create a strong password, please follow the following steps: </p>
-                    <p class="passIncorrect-1" id="passTag-1"> Password should be between 8 - 20 characters. </p>
-                    <p class="passIncorrect-2" id="passTag-2"> It should contain at least 1 number, 1 uppercase letter and 1 symbol. </p>
-                    <p class="passIncorrect-3" id="passTag-3"> Do not repeat the same number or letter more than 3 times in a row. </p>
-                    <p class="passIncorrect-4" id="passTag-4"> Special characters/symbols not allowed: @#*()+={}/?~,.-_ </p>
-                </div>
-                <!-- Confirm Password -->
-                <div id="confirmRequirement" class="hidden">
-                    <p class="confirmPassIncorrect" id="confirmPassTag"> Please make sure your password matches. </p>
-                </div>
-                <!-- Email -->
-                <div id="emailRequirement" class="hidden">
-                    <p class="emailIncorrect" id="emailTag"> Make sure your email is a valid email. </p>
-                </div>
-            </div>
-            <div class="emptyTop"></div>
-            <div class="emptyBottom"></div>
-            <div class="emptyLeft"></div>
-            <div class="emptyRight"></div>
-        </div>
-        <!-- Footer -->
-        <div class="footer">  
-            <p>By: Team MKJ</p>
-        </div>
-        <!-- Links the .js file to .html file -->
-        <script src="signup.js"></script>
-    </body>
-</html>
-
-
+ <!DOCTYPE html>
+ <html>
+     <head>
+         <!-- The website tab name -->
+         <title> Momo Klickers: Jar! </title>
+         <!-- Links the .css file to the .html file -->
+         <link href="../index.css" rel="stylesheet">
+     </head>
+     <body>
+         <!-- Header (Green bar with peach on top) -->
+         <div class="header">
+             <!-- <img class='peachLogo' src='https://cdn.pixabay.com/photo/2015/05/01/01/13/peach-747648_1280.png'> -->
+             <p> Momo Klickers: Jars - Sign in Page</p>
+         </div>
+         <div class="container">
+             <!-- Sign-up -->
+             <div class="content">
+                 <h2 class="signupTitle"> Sign-up </h2>
+                 <form id="inputForm">
+                     <p id="accountStatus"></p>
+                     <!-- Username -->
+                     <p><label> Username: </label></p>
+                     <p></p><input id="myUsername" type="text" name="username"></p>
+                     <p class="userIncorrect" id="userTag"> Username needs to be between 8 - 20 characters. </p>
+                     <!-- Password -->
+                     <p><label> Password: </label></p>
+                     <p><input id="myPassword" type="password" name="password"></p>
+                     <div class="hidden"> 
+                         <p class="passHint"> In order to create a strong password, please follow the following steps: </p>
+                         <p class="passIncorrect-1" id="passTag-1"> Password should be between 8 - 20 characters. </p>
+                         <p class="passIncorrect-2" id="passTag-2"> It should contain at least 1 number, 1 uppercase letter and 1 symbol. </p>
+                         <p class="passIncorrect-3" id="passTag-3"> Do not repeat the same number or letter more than 3 times in a row. </p>
+                         <p class="passIncorrect-4" id="passTag-4"> Special characters/symbols not allowed: @#*()+={}/?~,.-_ </p>
+                     </div>
+                     <!-- Confirm Password -->
+                     <p><label> Confirm Password: </label></p>
+                     <p><input id="myConfirmPassword" type="password" name="confirmPassword"></p>
+                     <p class="confirmPassIncorrect" id="confirmPassTag"> Please make sure your password matches. </p>
+                     <!-- Email -->
+                     <p><label> Email: </label></p>
+                     <p><input id="myEmail" type="email" name="email"></p>
+                     <p class="emailIncorrect" id="emailTag"> Make sure your email is a valid email. </p>
+                     <!-- Submit button -->
+                     <p><input id="mySubmit" value="Sign-Up" type="submit"></p>
+                 </form>
+             </div>
+         </div>
+         <!-- Footer -->
+         <div class="footer">  
+             <p>By: Team MKJ</p>
+         </div>
+         <!-- Links the .js file to .html file -->
+         <script src="signup.js"></script>
+     </body>
+ </html>
+ 
+ 
+ 
