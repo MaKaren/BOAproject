@@ -75,6 +75,10 @@ body {
     display: none;
 }
 
+.show {
+    display: show;
+}
+
 /* Text Manipulation */
 .signupTitle, .loginTitle {
     border-radius: 10px;
