@@ -194,7 +194,7 @@ function testEmail (event){
     }
 }
 
-// Check if the account was successfully made or not
+// Check if the account was successfully made or not (ON SUBMIT)
 function makeAccountConfirmation(event) {
     let allUserSave = [];
     let userSave = [];
@@ -209,19 +209,20 @@ function makeAccountConfirmation(event) {
             email: emailRecieved.value,
         };
         userSave.push(object);
-        console.log('userSave:', userSave);
+        console.log('object: ', object);
+        // console.log('userSave:', userSave);
 
         allUserSave.push(userSave);
-        console.log('allUserSave:',allUserSave);
+        // console.log('allUserSave:',allUserSave);
 
     // LocalStorage
         localStorage.user = JSON.stringify(allUserSave);
-        console.log('JSON Data:', JSON.stringify(allUserSave));
+        // console.log('JSON Data:', JSON.stringify(allUserSave));
 
         // Test Code ===================================
         // Login page:
         let userGet = JSON.parse(localStorage.user);
-        console.log('userGet:', userGet);
+        // console.log('userGet:', userGet);
         // =============================================
 
     } else {

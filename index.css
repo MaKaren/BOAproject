@@ -70,6 +70,10 @@ body {
     background-color: #fff6f5ef;
 }
 
+#mySubmit {
+    float: right;
+}
+
 /* Password restriction */
 .hidden {
     display: none;
