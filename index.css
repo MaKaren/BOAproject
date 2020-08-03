@@ -70,6 +70,10 @@ body {
     background-color: #fff6f5ef;
 }
 
+#mySubmit {
+    float: right;
+}
+
 /* Password restriction */
 .hidden {
     display: none;
@@ -97,6 +101,8 @@ body {
 div > form > p > label {
     font-size: 15px;
 }
+
+
 
 /* We can make these into a bubble on the side when 
     hovering over the box later in the project */

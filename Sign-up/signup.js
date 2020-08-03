@@ -40,20 +40,34 @@ formRecieved.addEventListener('keyup', testPassword);
 formRecieved.addEventListener('keyup', testConfirmPassword);
 formRecieved.addEventListener('keyup', testEmail);
 formRecieved.addEventListener('submit', makeAccountConfirmation);
-// .addEventListeners focus
-userRecieved.addEventListener('focus', function (event){
+
+// .addEventListeners User focus/blur
+userRecieved.addEventListener('focus', function (){
     document.getElementById('userRequirement').classList.add('show');
-    // event.target.classList.add('show');
-    // console.log('Events: ', event);
 });
+userRecieved.addEventListener('blur', function (){
+    document.getElementById('userRequirement').classList.remove('show');
+});
+// .addEventListeners Password focus/blur
 passRecieved.addEventListener('focus', function (event){
     document.getElementById('passRequirement').classList.add('show');
 });
+passRecieved.addEventListener('blur', function (){
+    document.getElementById('passRequirement').classList.remove('show');
+});
+// .addEventListeners Confirm focus/blur
 confirmRecieved.addEventListener('focus', function (event){
     document.getElementById('confirmRequirement').classList.add('show');
 });
+confirmRecieved.addEventListener('blur', function (){
+    document.getElementById('confirmRequirement').classList.remove('show');
+});
+// .addEventListeners Email focus/blur
 emailRecieved.addEventListener('focus', function (event){
     document.getElementById('emailRequirement').classList.add('show');
+});
+emailRecieved.addEventListener('blur', function (){
+    document.getElementById('emailRequirement').classList.remove('show');
 });
 
 // Check for Username
@@ -180,7 +194,7 @@ function testEmail (event){
     }
 }
 
-// Check if the account was successfully made or not
+// Check if the account was successfully made or not (ON SUBMIT)
 function makeAccountConfirmation(event) {
     let allUserSave = [];
     let userSave = [];
@@ -195,19 +209,20 @@ function makeAccountConfirmation(event) {
             email: emailRecieved.value,
         };
         userSave.push(object);
-        console.log('userSave:', userSave);
+        console.log('object: ', object);
+        // console.log('userSave:', userSave);
 
         allUserSave.push(userSave);
-        console.log('allUserSave:',allUserSave);
+        // console.log('allUserSave:',allUserSave);
 
     // LocalStorage
         localStorage.user = JSON.stringify(allUserSave);
-        console.log('JSON Data:', JSON.stringify(allUserSave));
+        // console.log('JSON Data:', JSON.stringify(allUserSave));
 
         // Test Code ===================================
         // Login page:
         let userGet = JSON.parse(localStorage.user);
-        console.log('userGet:', userGet);
+        // console.log('userGet:', userGet);
         // =============================================
 
     } else {
