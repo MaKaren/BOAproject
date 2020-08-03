@@ -9,6 +9,9 @@
 // let user = [{name: 'Jaye', username: 'JayeUserName', password: 'myPassword7^'}];
 // =========================================
 
+// AXIOS
+// let axios = require('axios');
+
 // Initialize all the .getElementById for all the inputs
 let formRecieved = document.getElementById('inputForm');
 let userRecieved = document.getElementById('myUsername');
@@ -72,14 +75,26 @@ emailRecieved.addEventListener('blur', function (){
 
 // Check for Username
 function testUsername(event) {
-    if(userRecieved.value.length >= 8 && userRecieved.value.length <= 20){
-        userTagRecieved.classList.add('userCorrect');
-        userTagRecieved.classList.remove('userIncorrect');
-        checkUsername = true;
-    } else {
+    if (userRecieved.value.length <= 8 && userRecieved.value.length <= 20) {
         userTagRecieved.classList.add('userIncorrect');
         userTagRecieved.classList.remove('userCorrect');
-        checkUsername = false;
+    }
+    if (userRecieved.value.length <= 8 && userRecieved.value.length <= 20) {
+        axios.get(`https://dsya-server.herokuapp.com/team1/checkusername/${userRecieved.value}`)
+            .then (response => {
+                console.log('response:', response);
+                userTagRecieved.classList.add('userIncorrect');
+                userTagRecieved.classList.remove('userCorrect');
+                checkUsername = false;
+            })
+            .catch (error => {
+                console.log('error:', error)
+                if(userRecieved.value.length >= 8 && userRecieved.value.length <= 20){
+                    userTagRecieved.classList.add('userCorrect');
+                    userTagRecieved.classList.remove('userIncorrect');
+                    checkUsername = true;
+                }
+            })
     }
 }
 
@@ -209,21 +224,30 @@ function makeAccountConfirmation(event) {
             email: emailRecieved.value,
         };
         userSave.push(object);
-        console.log('object: ', object);
-        // console.log('userSave:', userSave);
 
-        allUserSave.push(userSave);
-        // console.log('allUserSave:',allUserSave);
-
-    // LocalStorage
-        localStorage.user = JSON.stringify(allUserSave);
-        // console.log('JSON Data:', JSON.stringify(allUserSave));
-
-        // Test Code ===================================
-        // Login page:
-        let userGet = JSON.parse(localStorage.user);
-        // console.log('userGet:', userGet);
-        // =============================================
+// AXIOS
+        axios.post('https://dsya-server.herokuapp.com/team1/createuser/', object)
+            .then(response => {
+                console.log(response);
+                console.log('object: ', object);
+                // console.log('userSave:', userSave);
+        
+                allUserSave.push(userSave);
+                // console.log('allUserSave:',allUserSave);
+        
+            // LocalStorage
+                localStorage.user = JSON.stringify(allUserSave);
+                // console.log('JSON Data:', JSON.stringify(allUserSave));
+        
+                // Test Code ===================================
+                // Login page:
+                let userGet = JSON.parse(localStorage.user);
+                // console.log('userGet:', userGet);
+                // =============================================
+            })
+            .catch(error => {
+                console.log(error);
+            })
 
     } else {
         document.getElementById('accountStatus').innerHTML = '*Your account could not be made. Make sure to check all the requirements.'
