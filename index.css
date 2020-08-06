@@ -114,7 +114,8 @@ div > form > p > label {
 .userIncorrect, 
 .passIncorrect-1, .passIncorrect-2, .passIncorrect-3, .passIncorrect-4, 
 .confirmPassIncorrect, 
-.emailIncorrect {
+.emailIncorrect,
+.emailConfirmIncorrect {
     font-size: 15px;
     font-weight: bold;
     color: rgb(212, 88, 105);
@@ -125,7 +126,8 @@ div > form > p > label {
 .userIncorrect::after, 
 .passIncorrect-1::after, .passIncorrect-2::after, .passIncorrect-3::after, .passIncorrect-4::after, 
 .confirmPassIncorrect::after, 
-.emailIncorrect::after {
+.emailIncorrect::after, 
+.emailConfirmIncorrect::after {
     content: '\2717';
 }
 
@@ -133,7 +135,8 @@ div > form > p > label {
 .userCorrect, 
 .passCorrect-1, .passCorrect-2, .passCorrect-3, .passCorrect-4,
 .confirmPassCorrect, 
-.emailCorrect {
+.emailCorrect, 
+.emailConfirmCorrect {
     font-size: 15px;
     font-weight: bold;
     color: rgb(76, 139, 92);
@@ -143,6 +146,7 @@ div > form > p > label {
 .userCorrect::after, 
 .passCorrect-1::after, .passCorrect-2::after, .passCorrect-3::after, .passCorrect-4::after, 
 .confirmPassCorrect::after, 
-.emailCorrect::after {
+.emailCorrect::after, 
+.emailConfirmCorrect::after {
     content: '\2713';
 }
