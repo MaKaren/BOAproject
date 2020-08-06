@@ -16,30 +16,20 @@ let checkUsername = false;
 let checkPassword = false;
 
 // .addEventListeners
-formRecieved.addEventListener('keyup', function() {
+formRecieved.addEventListener('submit', function(event) {
+    event.preventDefault();
     // if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20) {
-        axios.get(`https://dsya-server.herokuapp.com/team1/checkusername/${userRecieved.value}`) 
+        axios.get(`https://dsya-server.herokuapp.com/team1/login/`, {
+            auth: {
+                username: userRecieved.value,
+                password: passRecieved.value,
+            }
+        }) 
             .then (response => {
-                if (response.data === 'user exist') {
-                    checkUsername = true;
-                } 
+                console.log('Response', response.data);
+                window.location.replace('http://127.0.0.1:5500/Home/home.html');
             }) 
             .catch (error => {
                 console.log(error);
             })
-        axios.get(`https://dsya-server.herokuapp.com/team1/checkpassword/${userPassword.value}`) 
-            .then (response => {
-                if (response.data === 'password exist') {
-                    checkPassword = true;
-                }
-            }) 
-            .catch (error => {
-                console.log(error);
-            })    
-    // }
-    console.log('Status:', checkUsername && checkPassword);
-    if (checkUsername && checkPassword) {
-        // Direct them to the home page.
-        // home.html
-    }
 });
