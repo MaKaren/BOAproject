@@ -5,10 +5,6 @@
     Theme: Peaches
 */
 
-// Test Code ===============================
-// let user = [{name: 'Jaye', username: 'JayeUserName', password: 'myPassword7^'}];
-// =========================================
-
 // AXIOS - this was used for the package but we chose to change it to direct link
 // let axios = require('axios');
 
@@ -247,7 +243,7 @@ function makeAccountConfirmation(event) {
     let userSave = [];
     event.preventDefault();
     if (checkUsername && checkPassword && checkConfirmPassword && checkEmail && checkConfirmEmail) {
-        document.getElementById('accountStatus').innerHTML = 'Your account has been made'; 
+        // document.getElementById('accountStatus').innerHTML = 'Your account has been made'; 
         let object = {
             username: userRecieved.value,
             password: passRecieved.value,
@@ -280,6 +276,7 @@ function makeAccountConfirmation(event) {
             .catch(error => {
                 console.log(error);
             })
+        window.location.replace('http://127.0.0.1:5500/Sign-up/sign-up-successful.html');
     } else {
         document.getElementById('accountStatus').innerHTML = '*Your account could not be made. Make sure to check all the requirements.'
     }
