@@ -75,25 +75,29 @@ emailRecieved.addEventListener('blur', function (){
 
 // Check for Username
 function testUsername(event) {
-    if (userRecieved.value.length <= 8 && userRecieved.value.length <= 20) {
+    if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20) {
         userTagRecieved.classList.add('userIncorrect');
         userTagRecieved.classList.remove('userCorrect');
     }
-    if (userRecieved.value.length <= 8 && userRecieved.value.length <= 20) {
+    if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20) {
+        console.log('User Recieved:', userRecieved.value);
         axios.get(`https://dsya-server.herokuapp.com/team1/checkusername/${userRecieved.value}`)
             .then (response => {
-                console.log('response:', response);
-                userTagRecieved.classList.add('userIncorrect');
-                userTagRecieved.classList.remove('userCorrect');
-                checkUsername = false;
-            })
-            .catch (error => {
-                console.log('error:', error)
-                if(userRecieved.value.length >= 8 && userRecieved.value.length <= 20){
+                if (response.data === 'not found') {
                     userTagRecieved.classList.add('userCorrect');
                     userTagRecieved.classList.remove('userIncorrect');
                     checkUsername = true;
+                } else if (response.data === 'user exist') {
+                    // Username is not avaliable.
+                    userTagRecieved.innerHTML = 'Username is not avaliable' // Jaye fix this for me later plz. I can't spell QQ
+                    userTagRecieved.classList.add('userIncorrect');
+                    userTagRecieved.classList.remove('userCorrect');
+                    checkUsername = false;
                 }
+                console.log('response:', response);
+            })
+            .catch (error => {
+                console.log('error:', error);
             })
     }
 }
@@ -216,8 +220,6 @@ function makeAccountConfirmation(event) {
     event.preventDefault();
     if (checkUsername && checkPassword && checkConfirmPassword && checkEmail) {
         document.getElementById('accountStatus').innerHTML = 'Your account has been made'; 
-
-    // Checking for console
         let object = {
             username: userRecieved.value,
             password: passRecieved.value,
@@ -225,20 +227,16 @@ function makeAccountConfirmation(event) {
         };
         userSave.push(object);
 
-// AXIOS
         axios.post('https://dsya-server.herokuapp.com/team1/createuser/', object)
             .then(response => {
                 console.log(response);
                 console.log('object: ', object);
                 // console.log('userSave:', userSave);
-        
                 allUserSave.push(userSave);
                 // console.log('allUserSave:',allUserSave);
-        
             // LocalStorage
                 localStorage.user = JSON.stringify(allUserSave);
                 // console.log('JSON Data:', JSON.stringify(allUserSave));
-        
                 // Test Code ===================================
                 // Login page:
                 let userGet = JSON.parse(localStorage.user);
