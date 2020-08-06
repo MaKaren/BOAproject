@@ -37,7 +37,6 @@ formRecieved.addEventListener('keyup', function() {
                 console.log(error);
             })    
     // }
-    console.log('Password:', userPassword.value);
     console.log('Status:', checkUsername && checkPassword);
     if (checkUsername && checkPassword) {
         // Direct them to the home page.
