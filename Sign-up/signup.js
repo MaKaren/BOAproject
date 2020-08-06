@@ -36,7 +36,8 @@ let emailConfirmTagRevieved = document.getElementById('emailConfirmTag');
 
 // Initalize Booleans
 let checkUsername = false;
-let checkPaslet checkConfirmPassword = false;
+let checkPassword = false;
+let checkConfirmPassword = false;
 let checkEmail = false;
 let checkConfirmEmail = false;
 
