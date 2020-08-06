@@ -127,7 +127,7 @@ function testPassword(event) {
 // Check for password length
     if (passRecieved.value.length >= 8 && passRecieved.value.length <= 20){
         // Checking if this will work - in the end we will make sure the password isn't visiable
-        passTagRevieved1.innerHTML = passRecieved.value;
+        passTagRevieved1.innerHTML = 'Password should be between 8 - 20 characters.';
         passTagRevieved1.classList.add('passCorrect-1');
         passTagRevieved1.classList.remove('passIncorrect-1');
         checkPass1 = true;
@@ -201,12 +201,12 @@ function testPassword(event) {
 function testConfirmPassword(event){
     // != 0 is to prevent default from changing when there's no password input
     if (passRecieved.value == confirmRecieved.value && passRecieved.value.length != 0) {
-        confirmPassTagRecieved.innerHTML = 'Matches!: ' + confirmRecieved.value;
+        confirmPassTagRecieved.innerHTML = 'Your password matches.';
         confirmPassTagRecieved.classList.add('confirmPassCorrect');
         confirmPassTagRecieved.classList.remove('confirmPassIncorrect');
         checkConfirmPassword = true;
     } else {
-        confirmPassTagRecieved.innerHTML = 'Your password doesn\'t match: ' + confirmRecieved.value;
+        confirmPassTagRecieved.innerHTML = 'Your password doesn\'t match.';
         confirmPassTagRecieved.classList.add('confirmPassIncorrect');
         confirmPassTagRecieved.classList.remove('confirmPassCorrect');
         checkConfirmPassword = false;
@@ -232,11 +232,12 @@ function testConfirmEmail (event) {
     if (emailConfirmRevieved.value == emailRecieved.value && emailRecieved.value.length != 0) {
         emailConfirmTagRevieved.classList.add('emailConfirmCorrect');
         emailConfirmTagRevieved.classList.remove('emailConfirmIncorrect');
-        checkCorfirmEmail = true;
+        checkConfirmEmail = true;
     } else {
         emailConfirmTagRevieved.classList.add('emailConfirmIncorrect');
         emailConfirmTagRevieved.classList.remove('emailConfirmCorrect');
         checkConfirmEmail = false;
+        
     }
 }
 
@@ -253,6 +254,12 @@ function makeAccountConfirmation(event) {
             email: emailRecieved.value,
         };
         userSave.push(object);
+
+        userRecieved.innerHTML = '';
+        passRecieved.innerHTML = '';
+        confirmPassRecieved.innerHTML = '';
+        emailRecieved.innerHTML = '';
+        emailConfirmRevieved.innerHTML = '';
 
         axios.post('https://dsya-server.herokuapp.com/team1/createuser/', object)
             .then(response => {
