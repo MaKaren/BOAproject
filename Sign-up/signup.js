@@ -9,7 +9,7 @@
 // let user = [{name: 'Jaye', username: 'JayeUserName', password: 'myPassword7^'}];
 // =========================================
 
-// AXIOS
+// AXIOS - this was used for the package but we chose to change it to direct link
 // let axios = require('axios');
 
 // Initialize all the .getElementById for all the inputs
@@ -18,6 +18,7 @@ let userRecieved = document.getElementById('myUsername');
 let passRecieved = document.getElementById('myPassword');
 let confirmRecieved = document.getElementById('myConfirmPassword');
 let emailRecieved = document.getElementById('myEmail');
+let emailConfirmRevieved = document.getElementById('myConfirmEmail');
 
 // Initialize all the .getElementById for the restrictions for username
 let userTagRecieved = document.getElementById('userTag');
@@ -30,18 +31,22 @@ let passTagRevieved4 = document.getElementById('passTag-4');
 let confirmPassTagRecieved = document.getElementById('confirmPassTag');
 // Initialize all the .getElementById for the restrictions for email
 let emailTagRecieved = document.getElementById('emailTag');
+// Initialize all the .getElementById for the restrictions for email confirm
+let emailConfirmTagRevieved = document.getElementById('emailConfirmTag');
 
 // Initalize Booleans
 let checkUsername = false;
 let checkPassword = false;
 let checkConfirmPassword = false;
 let checkEmail = false;
+let checkConfirmEmail = false;
 
 // .addEventListeners
 formRecieved.addEventListener('keyup', testUsername);
 formRecieved.addEventListener('keyup', testPassword);
 formRecieved.addEventListener('keyup', testConfirmPassword);
 formRecieved.addEventListener('keyup', testEmail);
+formRecieved.addEventListener('keyup', testConfirmEmail);
 formRecieved.addEventListener('submit', makeAccountConfirmation);
 
 // .addEventListeners User focus/blur
@@ -72,6 +77,13 @@ emailRecieved.addEventListener('focus', function (event){
 emailRecieved.addEventListener('blur', function (){
     document.getElementById('emailRequirement').classList.remove('show');
 });
+// .addEventListener Confirm Email focus/blur
+emailConfirmRevieved.addEventListener('focus', function() {
+    document.getElementById('emailConfirmRequirement').classList.add('show');
+});
+emailConfirmRevieved.addEventListener('blur', function () {
+    document.getElementById('emailConfirmRequirement').classList.remove('show');
+});
 
 // Check for Username
 function testUsername(event) {
@@ -80,21 +92,23 @@ function testUsername(event) {
         userTagRecieved.classList.remove('userCorrect');
     }
     if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20) {
-        console.log('User Recieved:', userRecieved.value);
+        // console.log('User Recieved:', userRecieved.value);
+        // Axios reads from the back-end
         axios.get(`https://dsya-server.herokuapp.com/team1/checkusername/${userRecieved.value}`)
             .then (response => {
                 if (response.data === 'not found') {
+                    // Username is avaliable
                     userTagRecieved.classList.add('userCorrect');
                     userTagRecieved.classList.remove('userIncorrect');
                     checkUsername = true;
                 } else if (response.data === 'user exist') {
-                    // Username is not avaliable.
-                    userTagRecieved.innerHTML = 'Username is not avaliable' // Jaye fix this for me later plz. I can't spell QQ
+                    // Username is not avaliable
+                    userTagRecieved.innerHTML = 'Username is not avaliable' 
                     userTagRecieved.classList.add('userIncorrect');
                     userTagRecieved.classList.remove('userCorrect');
                     checkUsername = false;
                 }
-                console.log('response:', response);
+                // console.log('response:', response);
             })
             .catch (error => {
                 console.log('error:', error);
@@ -213,12 +227,25 @@ function testEmail (event){
     }
 }
 
+// Check for email confirmation validation
+function testConfirmEmail (event) {
+    if (emailConfirmRevieved.value == emailRecieved.value && emailRecieved.value.length != 0) {
+        emailConfirmTagRevieved.classList.add('emailConfirmCorrect');
+        emailConfirmTagRevieved.classList.remove('emailConfirmIncorrect');
+        checkCorfirmEmail = true;
+    } else {
+        emailConfirmTagRevieved.classList.add('emailConfirmIncorrect');
+        emailConfirmTagRevieved.classList.remove('emailConfirmCorrect');
+        checkConfirmEmail = false;
+    }
+}
+
 // Check if the account was successfully made or not (ON SUBMIT)
 function makeAccountConfirmation(event) {
     let allUserSave = [];
     let userSave = [];
     event.preventDefault();
-    if (checkUsername && checkPassword && checkConfirmPassword && checkEmail) {
+    if (checkUsername && checkPassword && checkConfirmPassword && checkEmail && checkConfirmEmail) {
         document.getElementById('accountStatus').innerHTML = 'Your account has been made'; 
         let object = {
             username: userRecieved.value,
@@ -246,7 +273,6 @@ function makeAccountConfirmation(event) {
             .catch(error => {
                 console.log(error);
             })
-
     } else {
         document.getElementById('accountStatus').innerHTML = '*Your account could not be made. Make sure to check all the requirements.'
     }
