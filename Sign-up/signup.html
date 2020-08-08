@@ -11,65 +11,58 @@
          <title> Momo Klickers: Jar! </title>
          <!-- Links the .css file to the .html file -->
          <link href="../index.css" rel="stylesheet">
+         <link href="https://cdn.pixabay.com/photo/2015/05/01/01/13/peach-747648_1280.png" rel="icon">
      </head>
      <body>
-         <!-- Header (Green bar with peach on top) -->
-         <div class="header">
-             <!-- <img class='peachLogo' src='https://cdn.pixabay.com/photo/2015/05/01/01/13/peach-747648_1280.png'> -->
-             <p> Momo Klickers: Jars - Sign in Page</p>
-         </div>
-         <div class="container">
-             <!-- Sign-up -->
-             <div class="content">
-                 <h2 class="signupTitle"> Sign-up </h2>
-                 <form id="inputForm">
-                     <p id="accountStatus"></p>
-                     <!-- Name -->
-                     <p><input id="myName" type="text" name= "name" placeholder="Name"></p>
-                     <!-- Username -->
-                     <p><input id="myUsername" type="text" name="username" placeholder="Username"></p>
-                     <div id="userRequirement" class="hidden">
-                        <p class="userIncorrect" id="userTag"> Username needs to be between 8 - 20 characters. </p>
-                     </div>
-                     <!-- Password -->
-                     <p><input id="myPassword" type="password" name="password" placeholder="Password"></p>
-                     <div id="passRequirement" class="hidden"> 
-                         <p class="passHint"> In order to create a strong password, please follow the following steps: </p>
-                         <p class="passIncorrect-1" id="passTag-1"> Password should be between 8 - 20 characters. </p>
-                         <p class="passIncorrect-2" id="passTag-2"> It should contain at least 1 number, 1 uppercase letter and 1 symbol. </p>
-                         <p class="passIncorrect-3" id="passTag-3"> Do not repeat the same number or letter more than 3 times in a row. </p>
-                         <p class="passIncorrect-4" id="passTag-4"> Special characters/symbols not allowed: @#*()+={}/?~,.-_ </p>
-                     </div>
-                     <!-- Confirm Password -->
-                     <p><input id="myConfirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password"></p>
-                     <div id="confirmRequirement" class="hidden">
-                        <p class="confirmPassIncorrect" id="confirmPassTag"> Please make sure your password matches. </p>
-                     </div>
-                     <!-- Email -->
-                     <p><input id="myEmail" type="email" name="email" placeholder="Email"></p>
-                     <div id="emailRequirement" class="hidden">
-                        <p class="emailIncorrect" id="emailTag"> Make sure your email is a valid email. </p>
-                     </div>
-                    <!-- Confirm Email -->
-                    <p><input id="myConfirmEmail" type="email" name="email" placeholder="Confirm Email"></p>
-                    <div id="emailConfirmRequirement" class="hidden">
-                        <p class="emailConfirmIncorrect" id="emailConfirmTag"> Make sure your email matches. </p>
+        <!-- Sign-up -->
+        <div class="content">
+            <img class='peachLogo' src='https://cdn.pixabay.com/photo/2015/05/01/01/13/peach-747648_1280.png'>
+            <p class="logo-name">Momo Klickers: Jars </p>
+            <h2 class="signupTitle"> Sign in Page </h2>
+            <form id="inputForm">
+                <p id="accountStatus"></p>
+                <div class="gridContainer">
+                    <!-- Name -->
+                    <p class="item-1"><input id="myName" type="text" name= "name" placeholder="Name"></p>
+                    <!-- Username -->
+                    <p class="item-2"><input id="myUsername" type="text" name="username" placeholder="Username"></p>
+                    <div id="userRequirement" class="hidden">
+                    <p class="userIncorrect" id="userTag"> Username needs to be between 8 - 20 characters. </p>
                     </div>
-                    <!-- Submit button -->
-                    <div>
-                        <p><input id="mySubmit" value="Sign-Up" type="submit"></p>
+                    <!-- Password -->
+                    <p class="item-3"><input id="myPassword" type="password" name="password" placeholder="Password"></p>
+                    <div id="passRequirement" class="hidden"> 
+                        <p class="passHint"> In order to create a strong password, please follow the following steps: </p>
+                        <p class="passIncorrect-1" id="passTag-1"> Password should be between 8 - 20 characters. </p>
+                        <p class="passIncorrect-2" id="passTag-2"> It should contain at least 1 number, 1 uppercase letter and 1 symbol. </p>
+                        <p class="passIncorrect-3" id="passTag-3"> Do not repeat the same number or letter more than 3 times in a row. </p>
+                        <p class="passIncorrect-4" id="passTag-4"> Special characters/symbols not allowed: @#*()+={}/?~,.-_ </p>
                     </div>
-                 </form>
-                 <div class="textLink">
-                    <p> <a href='../Login/login.html'>Login</a> </p>
-                    <p> <a href='../Sign-up/sign-up-successful.html'>Confirmation</a> </p>
+                    <!-- Confirm Password -->
+                    <p class="item-4"><input id="myConfirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password"></p>
+                    <div id="confirmRequirement" class="hidden">
+                    <p class="confirmPassIncorrect" id="confirmPassTag"> Please make sure your password matches. </p>
+                    </div>
+                    <!-- Email -->
+                    <p class="item-5"><input id="myEmail" type="email" name="email" placeholder="Email"></p>
+                    <div id="emailRequirement" class="hidden">
+                    <p class="emailIncorrect" id="emailTag"> Make sure your email is a valid email. </p>
+                    </div>
+                <!-- Confirm Email -->
+                <p class="item-6"><input id="myConfirmEmail" type="email" name="email" placeholder="Confirm Email"></p>
+                <div id="emailConfirmRequirement" class="hidden">
+                    <p class="emailConfirmIncorrect" id="emailConfirmTag"> Make sure your email matches. </p>
                 </div>
-             </div>
-         </div>
-         <!-- Footer -->
-         <div class="footer">  
-             <p>By: Team MKJ</p>
-         </div>
+            </div>
+            <!-- Submit button -->
+            <div class="submitContent">
+                <p><input id="mySubmit" value="Sign-Up" type="submit"></p>
+            </div>
+            </form>
+            <p> <a href='../Login/login.html'>Login</a> </p>
+            <p> <a href='../Sign-up/sign-up-successful.html'>Confirmation</a> </p>
+            <p class="logo-name credit">By: Team MKJ</p>
+        </div>
          <!-- Links the .js file to .html file -->
          <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
          <script src="signup.js"></script>
