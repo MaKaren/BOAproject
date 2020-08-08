@@ -10,10 +10,7 @@
 let formRecieved = document.getElementById('inputForm');
 let userRecieved = document.getElementById('myUsername');
 let passRecieved = document.getElementById('myPassword');
-
-// Initlize Boolean
-let checkUsername = false;
-let checkPassword = false;
+let accountStatusRecieved = document.getElementById('accountStatus');
 
 // .addEventListeners
 formRecieved.addEventListener('submit', function(event) {
@@ -27,9 +24,14 @@ formRecieved.addEventListener('submit', function(event) {
         }) 
             .then (response => {
                 console.log('Response', response.data);
-                window.location.replace('http://127.0.0.1:5500/Home/home.html');
+                if (response.data == 'username and password ok') {
+                    window.location.replace('http://127.0.0.1:5500/Home/home.html');
+                } else {
+                    accountStatusRecieved.innerHTML = 'Your username or password is incorrect.';
+                }
             }) 
             .catch (error => {
                 console.log(error);
+                accountStatusRecieved.innerHTML = 'Your username or password is incorrect.';
             })
 });
