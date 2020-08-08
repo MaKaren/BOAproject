@@ -63,10 +63,14 @@ body {
 
 /* Body of all the input ex.] Username, Password, Confirm Password, Email */
 .content {
-    /* order: 1; */
+    margin: 0;
+    width: 40%;
     position: absolute;
-    top: 50%; left:50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
+
+
     border-radius: 10px;
     padding: 10px; padding-left: 5%; padding-right: 5%;
     background-color: #fff6f5ef;
@@ -123,15 +127,25 @@ div > form > p > label {
 
 
 input {
+    width: 91%;
     padding: 10px 15px;
-    margin: 8px 0;
+    margin: 2px 0;
     border-radius: 5px;
     border: 1px solid #ccc;
+    
 }
 
 #mySubmit {
     width: 100%;
     padding: 8px;
+}
+
+.textLink {
+    padding: 2%;
+}
+
+.textLink > p {
+    margin: 0 auto;
 }
 
 
