@@ -39,6 +39,12 @@ body {
     color: rgba(59, 58, 57, 0.438);
 }
 
+.green-bar {
+    transform: translate(-11%, 0%);
+    width: 129%;
+    background-color: rgba(145, 209, 145, 0.568);
+}
+
 .cheat-page {
     text-align: center;
 }
