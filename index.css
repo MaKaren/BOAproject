@@ -39,6 +39,10 @@ body {
     color: rgba(59, 58, 57, 0.438);
 }
 
+.cheat-page {
+    text-align: center;
+}
+
 /* Body of all the input ex.] Username, Password, Confirm Password, Email */
 .content {
     margin: 0;
