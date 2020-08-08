@@ -9,72 +9,61 @@
 
 /* Background Picture */
 body {     
-    background-image: url(https://i.pinimg.com/564x/77/93/bb/7793bb8d347640af50da70435ea0befd.jpg);
-    position: absolute;
+    /* background-image: url(https://i.pinimg.com/564x/77/93/bb/7793bb8d347640af50da70435ea0befd.jpg); */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.212), rgba(255, 204, 248, 0.1)), url('Pictures/peaches-bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
     width: 100%; height: 100vh;
+    font-family: Monaco;
 }
 
-/* Peach Logo in the Header
+/* Peach Logo */
 .peachLogo {
-    Lol this peach logo is messed up. Gotta fix it at some point.
-    position: fixed;
-    height: 5%; width: 5%; 
-    transform: translate(-50%, 0%);
-}
-*/
-
-/* Header Styling */
-.header {  
-    position: fixed; 
-    right: 0;  top: 0; 
-    height: 3%; width: 100%;  
-    background: #f5b4bf;
-    text-align: center;  
-    padding: 1% 
+    height: 20%; width: 20%; 
+    padding-top: 8%;
+    position: relative;
+    top:50%; left:50%;
+    transform: translate(-40%, 8%);
 }
 
-.header > p {
-    margin: 0 auto;
-    text-align: center;  
-}
-
-/* Footer Styling */
-.footer {  
-    position: fixed;  
-    left: 0;  bottom: 0;  
-    height: 3%; width: 100%;
+.logo-name {
     text-align: center;
-    background-color:#f5b4bf; 
-    padding: 1%;
+    font-family: Copperplate;
 }
 
-.footer > p {
+.credit {
     margin: 0 auto;
+    padding-top: 50px;
+    color: rgba(59, 58, 57, 0.438);
 }
-
-/* Content Styling */
-/* .container {
-    display: flex;
-    flex-direction: row;
-    place-items: center;
-    justify-content: space-around;
-    align-content: space-between;
-} */
 
 /* Body of all the input ex.] Username, Password, Confirm Password, Email */
 .content {
     margin: 0;
-    width: 40%;
+    width: 30%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-
-    border-radius: 10px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
     padding: 10px; padding-left: 5%; padding-right: 5%;
     background-color: #fff6f5ef;
+
+
+    animation-name: opening;
+    animation-duration: 2s;  
+    animation-fill-mode: forwards;
 }
+
+@keyframes opening {
+    from {top: -50%;}
+    to {top: 50%;}
+}
+
 
 #mySubmit {
     float: right;
@@ -83,6 +72,7 @@ body {
 /* Password restriction */
 .hidden {
     display: none;
+    /* grid-area: text; */
 }
 
 .show {
@@ -92,7 +82,8 @@ body {
 /* Text Manipulation */
 .signupTitle, .loginTitle {
     border-radius: 10px;
-    background-color: #f5c5cd;
+    padding-top: 8%;
+    /* background-color: #f5c5cd; */
     color: rgb(65, 65, 65);
     text-align: center;
     margin: 0 auto;
@@ -108,11 +99,30 @@ div > form > p > label {
     font-size: 15px;
 }
 
+input {
+    width: 90%;
+    padding: 10px 15px;
+    margin: 2px 0;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    font-family: Monaco;
+}
 
+
+#mySubmit {
+    width: 100%;
+    padding: 10px;
+    border: none;
+}
+
+.submitContent {
+    padding-bottom: 45px;
+}
+
+/* Formatting all the restriction for the sign up page */
 
 /* We can make these into a bubble on the side when 
-    hovering over the box later in the project */
-
+hovering over the box later in the project */
 /* Color and format for INCORRECT */
 #accountStatus,
 .userIncorrect, 
@@ -120,46 +130,17 @@ div > form > p > label {
 .confirmPassIncorrect, 
 .emailIncorrect,
 .emailConfirmIncorrect {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     color: rgb(212, 88, 105);
 }
 
-
-input {
-    width: 91%;
-    padding: 10px 15px;
-    margin: 2px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    
-}
-
-#mySubmit {
-    width: 100%;
-    padding: 8px;
-}
-
-.textLink {
-    padding: 2%;
-}
-
-.textLink > p {
-    margin: 0 auto;
-}
-
-
-
-
-
-/* Formatting all the restriction for the sign up page */
-
 /* X mark - INCORRECT*/
-.userIncorrect::after, 
-.passIncorrect-1::after, .passIncorrect-2::after, .passIncorrect-3::after, .passIncorrect-4::after, 
-.confirmPassIncorrect::after, 
-.emailIncorrect::after, 
-.emailConfirmIncorrect::after {
+.userIncorrect::before, 
+.passIncorrect-1::before, .passIncorrect-2::before, .passIncorrect-3::before, .passIncorrect-4::before, 
+.confirmPassIncorrect::before, 
+.emailIncorrect::before, 
+.emailConfirmIncorrect::before {
     content: '\2717';
 }
 
@@ -169,16 +150,16 @@ input {
 .confirmPassCorrect, 
 .emailCorrect, 
 .emailConfirmCorrect {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     color: rgb(76, 139, 92);
 }
 
 /* Check mark - CORRECT */
-.userCorrect::after, 
-.passCorrect-1::after, .passCorrect-2::after, .passCorrect-3::after, .passCorrect-4::after, 
-.confirmPassCorrect::after, 
-.emailCorrect::after, 
-.emailConfirmCorrect::after {
+.userCorrect::before, 
+.passCorrect-1::before, .passCorrect-2::before, .passCorrect-3::before, .passCorrect-4::before, 
+.confirmPassCorrect::before, 
+.emailCorrect::before, 
+.emailConfirmCorrect::before {
     content: '\2713';
 }
