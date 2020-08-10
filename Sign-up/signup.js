@@ -281,3 +281,19 @@ function makeAccountConfirmation(event) {
         document.getElementById('accountStatus').innerHTML = '*Your account could not be made. Make sure to check all the requirements.'
     }
 }
+
+// fafaEye
+let fafaEyeRecieved = document.getElementById('pass-status');
+fafaEyeRecieved.addEventListener('click', fafaEye);
+
+function fafaEye() {
+    if (passRecieved.type == 'password') {
+        passRecieved.type = 'text';
+        fafaEyeRecieved.classList.add('fa-eye-slash');
+        fafaEyeRecieved.classList.remove('fa-eye');
+    } else {
+        passRecieved.type = 'password';
+        fafaEyeRecieved.classList.add('fa-eye');
+        fafaEyeRecieved.classList.remove('fa-eye-slash');
+    }
+} 
