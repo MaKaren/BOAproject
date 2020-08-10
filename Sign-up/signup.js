@@ -276,7 +276,7 @@ function makeAccountConfirmation(event) {
     }
 }
 
-// fafaEye
+// fafaEye Password
 let fafaEyeRecieved1 = document.getElementById('pass-status-1');
 fafaEyeRecieved1.addEventListener('click', fafaEye1);
 
@@ -292,7 +292,7 @@ function fafaEye1() {
     }
 } 
 
-// fafaEye
+// fafaEye Confirm Password
 let fafaEyeRecieved2 = document.getElementById('pass-status-2');
 fafaEyeRecieved2.addEventListener('click', fafaEye2);
 
