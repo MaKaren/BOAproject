@@ -11,13 +11,14 @@
          <title> Momo Klickers: Jar! </title>
          <!-- Links the .css file to the .html file -->
          <link href="../index.css" rel="stylesheet">
-         <link href="https://cdn.pixabay.com/photo/2015/05/01/01/13/peach-747648_1280.png" rel="icon">
+         <link href="../Pictures/derethemomo.png" rel="icon">
+         <script src="https://kit.fontawesome.com/6afa47461b.js" crossorigin="anonymous"></script>
      </head>
      <body>
         <!-- Sign-up -->
         <div class="content">
             <div class="green-bar"> <br> </div>
-            <img class='peachLogo' src='https://cdn.pixabay.com/photo/2015/05/01/01/13/peach-747648_1280.png'>
+            <img class='peachLogo' src='../Pictures/derethemomo.png'>
             <p class="logo-name">Momo Klickers: Jars </p>
             <h2 class="signupTitle"> Sign in Page </h2>
             <form id="inputForm">
@@ -31,7 +32,10 @@
                     <p class="userIncorrect" id="userTag"> Username needs to be between 8 - 20 characters. </p>
                     </div>
                     <!-- Password -->
-                    <p class="item-3"><input id="myPassword" type="password" name="password" placeholder="Password"></p>
+                    <p class="item-3">
+                        <input id="myPassword" type="password" name="password" placeholder="Password">
+                        <i id="pass-status" class="far fa-eye" aria-hidden="true"></i> 
+                    </p>
                     <div id="passRequirement" class="hidden"> 
                         <p class="passHint"> In order to create a strong password, please follow the following steps: </p>
                         <p class="passIncorrect-1" id="passTag-1"> Password should be between 8 - 20 characters. </p>
@@ -40,7 +44,10 @@
                         <p class="passIncorrect-4" id="passTag-4"> Special characters/symbols not allowed: @#*()+={}/?~,.-_ </p>
                     </div>
                     <!-- Confirm Password -->
-                    <p class="item-4"><input id="myConfirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password"></p>
+                    <p class="item-4">
+                        <input id="myConfirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password">
+                        <i id="pass-status" class="far fa-eye" aria-hidden="true"></i> 
+                    </p>
                     <div id="confirmRequirement" class="hidden">
                     <p class="confirmPassIncorrect" id="confirmPassTag"> Please make sure your password matches. </p>
                     </div>

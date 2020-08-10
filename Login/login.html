@@ -11,13 +11,14 @@
          <title> Momo Klickers: Jar! </title>
          <!-- Links the .css file to the .html file -->
          <link href="../index.css" rel="stylesheet">
-         <link href="https://cdn.pixabay.com/photo/2015/05/01/01/13/peach-747648_1280.png" rel="icon">
-     </head>
+         <link href="../Pictures/derethemomo.png" rel="icon">
+         <script src="https://kit.fontawesome.com/6afa47461b.js" crossorigin="anonymous"></script>
+    </head>
     <body>
     <!-- Login -->
         <div class="content">
             <div class="green-bar"> <br> </div>
-            <img class="peachLogo" src='https://cdn.pixabay.com/photo/2015/05/01/01/13/peach-747648_1280.png'>
+            <img class="peachLogo" src='../Pictures/derethemomo.png'>
             <p class="logo-name"> Momo Klickers: Jars</p>
             <h2 class="loginTitle">Login Page </h2>
             <form id="inputForm">
@@ -27,8 +28,9 @@
                 <p><input id="myUsername" type="text" name="username" placeholder="Username"></p>
             </div>
             <!-- Password -->
-            <div>
-                <p><input id="myPassword" type="password" name="password" placeholder="Password"></p>
+            <div class="custom-wrap">
+                    <input id="myPassword" type="password" name="password" placeholder="Password"> 
+                    <i id="pass-status" class="far fa-eye" aria-hidden="true"></i> 
             </div>
             <!-- Submit button -->
             <div class="submitContent">

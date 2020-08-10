@@ -12,6 +12,8 @@ let userRecieved = document.getElementById('myUsername');
 let passRecieved = document.getElementById('myPassword');
 let accountStatusRecieved = document.getElementById('accountStatus');
 
+
+
 // .addEventListeners
 formRecieved.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -35,3 +37,19 @@ formRecieved.addEventListener('submit', function(event) {
                 accountStatusRecieved.innerHTML = 'Your username or password is incorrect.';
             })
 });
+
+// fafaEye
+let fafaEyeRecieved = document.getElementById('pass-status');
+fafaEyeRecieved.addEventListener('click', fafaEye);
+
+function fafaEye() {
+    if (passRecieved.type == 'password') {
+        passRecieved.type = 'text';
+        fafaEyeRecieved.classList.add('fa-eye-slash');
+        fafaEyeRecieved.classList.remove('fa-eye');
+    } else {
+        passRecieved.type = 'password';
+        fafaEyeRecieved.classList.add('fa-eye');
+        fafaEyeRecieved.classList.remove('fa-eye-slash');
+    }
+} 
