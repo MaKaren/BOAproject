@@ -251,12 +251,6 @@ function makeAccountConfirmation(event) {
         };
         userSave.push(object);
 
-        userRecieved.innerHTML = '';
-        passRecieved.innerHTML = '';
-        confirmPassRecieved.innerHTML = '';
-        emailRecieved.innerHTML = '';
-        emailConfirmRevieved.innerHTML = '';
-
         axios.post('https://dsya-server.herokuapp.com/team1/createuser/', object)
             .then(response => {
                 console.log(response);
@@ -272,28 +266,44 @@ function makeAccountConfirmation(event) {
                 let userGet = JSON.parse(localStorage.user);
                 // console.log('userGet:', userGet);
                 // =============================================
+                window.location.replace('http://127.0.0.1:5500/Sign-up/sign-up-successful.html');
             })
             .catch(error => {
                 console.log(error);
             })
-        window.location.replace('http://127.0.0.1:5500/Sign-up/sign-up-successful.html');
     } else {
         document.getElementById('accountStatus').innerHTML = '*Your account could not be made. Make sure to check all the requirements.'
     }
 }
 
 // fafaEye
-let fafaEyeRecieved = document.getElementById('pass-status');
-fafaEyeRecieved.addEventListener('click', fafaEye);
+let fafaEyeRecieved1 = document.getElementById('pass-status-1');
+fafaEyeRecieved1.addEventListener('click', fafaEye1);
 
-function fafaEye() {
+function fafaEye1() {
     if (passRecieved.type == 'password') {
         passRecieved.type = 'text';
-        fafaEyeRecieved.classList.add('fa-eye-slash');
-        fafaEyeRecieved.classList.remove('fa-eye');
+        fafaEyeRecieved1.classList.add('fa-eye-slash');
+        fafaEyeRecieved1.classList.remove('fa-eye');
     } else {
         passRecieved.type = 'password';
-        fafaEyeRecieved.classList.add('fa-eye');
-        fafaEyeRecieved.classList.remove('fa-eye-slash');
+        fafaEyeRecieved1.classList.add('fa-eye');
+        fafaEyeRecieved1.classList.remove('fa-eye-slash');
+    }
+} 
+
+// fafaEye
+let fafaEyeRecieved2 = document.getElementById('pass-status-2');
+fafaEyeRecieved2.addEventListener('click', fafaEye2);
+
+function fafaEye2() {
+    if (confirmRecieved.type == 'password') {
+        confirmRecieved.type = 'text';
+        fafaEyeRecieved2.classList.add('fa-eye-slash');
+        fafaEyeRecieved2.classList.remove('fa-eye');
+    } else {
+        confirmRecieved.type = 'password';
+        fafaEyeRecieved2.classList.add('fa-eye');
+        fafaEyeRecieved2.classList.remove('fa-eye-slash');
     }
 } 
