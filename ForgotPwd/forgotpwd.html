@@ -1,0 +1,57 @@
+<!-- 
+    @Author Momo, Jaye, Karen
+    08/10/2020
+    Team MKJ
+    Theme: Peaches!
+ -->
+ <!DOCTYPE html>
+ <html>
+     <head>
+         <!-- The website tab name -->
+         <title> Momo Klickers: Jar! </title>
+         <!-- Links the .css file to the .html file -->
+         <link href="../index.css" rel="stylesheet">
+         <link href="../Pictures/derethemomo.png" rel="icon">
+         <script src="https://kit.fontawesome.com/6afa47461b.js" crossorigin="anonymous"></script>
+     </head>
+     <body>
+        <div class="content">
+            <div class="green-bar"> <br> </div>
+            <img class="peachLogo" src='../Pictures/derethemomo.png'>
+            <p class="logo-name"> Momo Klickers: Jars</p>
+            <h2 class="loginTitle">Change Password Page </h2>
+            <form id="inputForm">
+            <p id="accountStatus"></p>
+            <!-- Password -->
+            <div>
+                <input id="myPassword" type="password" name="password" placeholder="New Password">
+                <i id="pass-status-1" class="far fa-eye" aria-hidden="true"></i> 
+                <div id="passRequirement" class="hidden"> 
+                    <p class="passHint"> In order to create a strong password, please follow the following steps: </p>
+                    <p class="passIncorrect-1" id="passTag-1"> Password should be between 8 - 20 characters. </p>
+                    <p class="passIncorrect-2" id="passTag-2"> It should contain at least 1 number, 1 uppercase letter and 1 symbol. </p>
+                    <p class="passIncorrect-3" id="passTag-3"> Do not repeat the same number or letter more than 3 times in a row. </p>
+                    <p class="passIncorrect-4" id="passTag-4"> Special characters/symbols not allowed: @#*()+={}/?~,.-_ </p>
+                </div>
+            </div>
+            <!-- Confirm Password -->
+            <div class="custom-wrap">
+                    <input id="myConfirmPassword" type="password" name="password" placeholder="Confirm New Password"> 
+                    <i id="pass-status-2" class="far fa-eye" aria-hidden="true"></i> 
+                    <div id="confirmRequirement" class="hidden">
+                        <p class="confirmPassIncorrect" id="confirmPassTag"> Please make sure your password matches. </p>
+                    </div>
+            </div>
+            <!-- Submit button -->
+            <div class="submitContent">
+                <p><input id="mySubmit" value="Confirm" type="submit"></p>
+            </div>
+            <div>
+                <a href='../Login/login.html'>Login</a> </p>
+            </div>
+            <p class="logo-name credit">By: Team MKJ</p>
+        </div>
+        <!-- Links the .js file to .html file -->
+        <script src="forgotpwd.js"></script>
+     </body>
+ </html>
