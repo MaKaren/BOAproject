@@ -6,6 +6,7 @@
 */
 
 // Initalize Live Server
+// let sendToPage = 'http://127.0.0.1:5500/Sign-up/sign-up-successful.html';
 let sendToPage = 'http://127.0.0.1:5500/Sign-up/sign-up-successful.html';
 
 // AXIOS - this was used for the package but we chose to change it to direct link
@@ -134,7 +135,7 @@ function testUsername(event) {
                     userTagRecieved.classList.add('userCorrect');
                     userTagRecieved.classList.remove('userIncorrect');
                     checkUsername = true;
-                } else if (response.data === 'user exist') {
+                } else if (response.data === 'user exists') {
                     // Username is not avaliable
                     userTagRecieved.innerHTML = 'Username is not avaliable' 
                     userTagRecieved.classList.add('userIncorrect');

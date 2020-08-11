@@ -5,8 +5,13 @@
     Theme: Peaches
 */
 
+// Query String
+const params = new URLSearchParams(window.location.search);
+console.log(params.get('user'));
+
 // Initalize Live Server
-let sendToPage = 'http://127.0.0.1:5500/ForgotPwd/pwdchanged.html';
+// let sendToPage = 'http://127.0.0.1:5500/ForgotPwd/pwdchanged.html';
+let sendToPage = 'https://makaren.github.io/BOAproject/ForgotPwd/pwdchanged.html';
 
 // Initialize all the .getElementById for all the inputs
 let formRecieved = document.getElementById('inputForm');
@@ -204,6 +209,17 @@ function changePassword (event) {
             confirmRecieved.classList.remove('inputError');
         }
     } else {
-        window.location.replace(sendToPage);
+        axios.put(`https://dsya-server.herokuapp.com/team1/changepassword/`, {
+            username: params.get('user'),
+            password: passRecieved.value,
+        })
+        .then (response => {
+            console.log('response', response);
+            window.location.replace(sendToPage);
+        })
+        .catch (error =>{
+            console.log(error);
+            accountStatus.innerHTML = 'Your password could not be changed.'
+        })
     }
 }
