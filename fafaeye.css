@@ -15,6 +15,11 @@ input {
     border-radius: 5px;
     border: 2px solid #ccc;
     font-family: Monaco;
+    background-color: white;
+}
+
+.inputError {
+    background-color: rgba(245, 153, 153, 0.678);
 }
 
 #mySubmit {
@@ -69,6 +74,12 @@ i {
     top: -226px;
 }
 .fafaEyeSignupConfirmOnClick {
+    top: -262px;
+}
+.fafaEyeSignupPassOnClickWithEmail {
+    top: -297px;
+}
+.fafaEyeSignupConfirmOnClickWithEmail {
     top: -262px;
 }
 

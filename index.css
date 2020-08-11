@@ -49,6 +49,11 @@ body {
     text-align: center;
 }
 
+.betaPage {
+    font-size: 10px;
+    text-align: right;
+}
+
 /* Body of all the input ex.] Username, Password, Confirm Password, Email */
 .content {
     margin: 0;

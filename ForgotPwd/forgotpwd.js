@@ -9,6 +9,7 @@
 let formRecieved = document.getElementById('inputForm');
 let passRecieved = document.getElementById('myPassword');
 let confirmRecieved = document.getElementById('myConfirmPassword');
+let accountStatus = document.getElementById('accountStatus');
 
 // Initialize all the .getElementById for the restrictions for password
 let passTagRevieved1 = document.getElementById('passTag-1');
@@ -19,7 +20,6 @@ let passTagRevieved4 = document.getElementById('passTag-4');
 let confirmPassTagRecieved = document.getElementById('confirmPassTag');
 
 // Initalize Booleans
-let checkUsername = false;
 let checkPassword = false;
 let checkConfirmPassword = false;
 
@@ -188,5 +188,17 @@ function fafaEye2() {
 // -- Need Roger's Help for forgotten password (Password) --
 function changePassword (event) {
     event.preventDefault();
-
+    if (!checkPassword && !checkConfirmPassword) {
+        accountStatus.innerHTML = 'Password couldn\'t be changed. Please try again.'
+    }
+    if (!checkPassword) {
+        passRecieved.classList.add('inputError');
+    } else {
+        passRecieved.classList.remove('inputError');
+    }
+    if (!checkConfirmPassword) {
+        confirmRecieved.classList.add('inputError');
+    } else {
+        confirmRecieved.classList.remove('inputError');
+    }
 }

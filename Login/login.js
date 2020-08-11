@@ -34,6 +34,8 @@ formRecieved.addEventListener('submit', function(event) {
             .catch (error => {
                 console.log(error);
                 accountStatusRecieved.innerHTML = 'Your username or password is incorrect.';
+                userRecieved.classList.add('inputError');
+                passRecieved.classList.add('inputError');
             })
 });
 

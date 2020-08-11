@@ -87,16 +87,32 @@ confirmRecieved.addEventListener('blur', function (){
 // .addEventListeners Email focus/blur
 emailRecieved.addEventListener('focus', function (event){
     document.getElementById('emailRequirement').classList.add('show');
+    fafaEyeRecieved2.classList.add('fafaEyeSignupConfirmOnClickWithEmail');
+    fafaEyeRecieved2.classList.remove('fafaEyeSignupConfirm');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPassOnClickWithEmail');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPass');
 });
 emailRecieved.addEventListener('blur', function (){
     document.getElementById('emailRequirement').classList.remove('show');
+    fafaEyeRecieved2.classList.add('fafaEyeSignupConfirm');
+    fafaEyeRecieved2.classList.remove('fafaEyeSignupConfirmOnClickWithEmail');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPass');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPassOnClickWithEmail');
 });
 // .addEventListener Confirm Email focus/blur
 emailConfirmRevieved.addEventListener('focus', function() {
     document.getElementById('emailConfirmRequirement').classList.add('show');
+    fafaEyeRecieved2.classList.add('fafaEyeSignupConfirmOnClickWithEmail');
+    fafaEyeRecieved2.classList.remove('fafaEyeSignupConfirm');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPassOnClickWithEmail');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPass');
 });
 emailConfirmRevieved.addEventListener('blur', function () {
     document.getElementById('emailConfirmRequirement').classList.remove('show');
+    fafaEyeRecieved2.classList.add('fafaEyeSignupConfirm');
+    fafaEyeRecieved2.classList.remove('fafaEyeSignupConfirmOnClickWithEmail');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPass');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPassOnClickWithEmail');
 });
 
 // Check for Username
@@ -294,6 +310,31 @@ function makeAccountConfirmation(event) {
             })
     } else {
         document.getElementById('accountStatus').innerHTML = '*Your account could not be made. Make sure to check all the requirements.'
+        if (!checkUsername) {
+            userRecieved.classList.add('inputError');
+        } else {
+            userRecieved.classList.remove('inputError');
+        }
+        if (!checkPassword) {
+            passRecieved.classList.add('inputError');
+        } else {
+            passRecieved.classList.remove('inputError');
+        }
+        if (!checkConfirmPassword) {
+            confirmRecieved.classList.add('inputError');
+        } else {
+            confirmRecieved.classList.remove('inputError');
+        }
+        if (!checkEmail) {
+            emailRecieved.classList.add('inputError');
+        } else {
+            emailRecieved.classList.remove('inputError');
+        }
+        if (!checkConfirmEmail) {
+            emailConfirmRevieved.classList.add('inputError');
+        } else {
+            emailConfirmRevieved.classList.remove('inputError');     
+        }
     }
 }
 
