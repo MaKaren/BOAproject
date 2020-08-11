@@ -25,15 +25,17 @@
                 <p id="accountStatus"></p>
                 <div class="gridContainer">
                     <!-- Username -->
-                    <p class="item-2"><input id="myUsername" type="text" name="username" placeholder="Username"></p>
+                    <p><input id="myUsername" type="text" name="username" placeholder="Username"></p>
                     <div id="userRequirement" class="hidden">
                     <p class="userIncorrect" id="userTag"> Username needs to be between 8 - 20 characters. </p>
                     </div>
                     <!-- Password -->
-                    <p class="item-3 custom-wrap">
-                        <input id="myPassword" type="password" name="password" placeholder="Password">
-                        <i id="pass-status-1" class="far fa-eye" aria-hidden="true"></i> 
-                    </p>
+                    <div class="custom-wrap">
+                        <p>
+                            <input id="myPassword" type="password" name="password" placeholder="Password">
+                            <i id="pass-status-1" class="far fa-eye" aria-hidden="true"></i> 
+                        </p>
+                    </div>
                     <div id="passRequirement" class="hidden"> 
                         <p class="passHint"> In order to create a strong password, please follow the following steps: </p>
                         <p class="passIncorrect-1" id="passTag-1"> Password should be between 8 - 20 characters. </p>
@@ -42,20 +44,22 @@
                         <p class="passIncorrect-4" id="passTag-4"> Special characters/symbols not allowed: @#*()+={}/?~,.-_ </p>
                     </div>
                     <!-- Confirm Password -->
-                    <p class="item-4 custom-wrap">
-                        <input id="myConfirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password">
-                        <i id="pass-status-2" class="far fa-eye" aria-hidden="true"></i> 
-                    </p>
+                    <div class="custom-wrap">
+                        <p>
+                            <input id="myConfirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password">
+                            <i id="pass-status-2" class="far fa-eye" aria-hidden="true"></i> 
+                        </p>
+                    </div>
                     <div id="confirmRequirement" class="hidden">
                         <p class="confirmPassIncorrect" id="confirmPassTag"> Please make sure your password matches. </p>
                     </div>
                     <!-- Email -->
-                    <p class="item-5"><input id="myEmail" type="email" name="email" placeholder="Email"></p>
+                    <p><input id="myEmail" type="email" name="email" placeholder="Email"></p>
                     <div id="emailRequirement" class="hidden">
                         <p class="emailIncorrect" id="emailTag"> Make sure your email is a valid email. </p>
                     </div>
                 <!-- Confirm Email -->
-                <p class="item-6"><input id="myConfirmEmail" type="email" name="email" placeholder="Confirm Email"></p>
+                <p><input id="myConfirmEmail" type="email" name="email" placeholder="Confirm Email"></p>
                 <div id="emailConfirmRequirement" class="hidden">
                     <p class="emailConfirmIncorrect" id="emailConfirmTag"> Make sure your email matches. </p>
                 </div>

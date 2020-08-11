@@ -123,23 +123,23 @@ function testPassword(event) {
 // Check for password length
     if (passRecieved.value.length >= 8 && passRecieved.value.length <= 20){
         // Checking if this will work - in the end we will make sure the password isn't visiable
-        passTagRevieved1.innerHTML = 'Password should be between 8 - 20 characters.';
+        passTagRevieved1.innerHTML = ' Password should be between 8 - 20 characters.';
         passTagRevieved1.classList.add('passCorrect-1');
         passTagRevieved1.classList.remove('passIncorrect-1');
         checkPass1 = true;
     // != 0 is to prevent default from changing when there's no password input
     } else if (passRecieved.value.length <= 8 && passRecieved.value.length != 0){
-        passTagRevieved1.innerHTML = 'Your password is too short.';
+        passTagRevieved1.innerHTML = ' Your password is too short.';
         passTagRevieved1.classList.add('passIncorrect-1');
         passTagRevieved1.classList.remove('passCorrect-1');
         checkPass1 = false;
     } else if (passRecieved.value.length >= 20){
-        passTagRevieved1.innerHTML = 'Your password is too long.';
+        passTagRevieved1.innerHTML = ' Your password is too long.';
         passTagRevieved1.classList.add('passIncorrect-1');
         passTagRevieved1.classList.remove('passCorrect-1');
         checkPass1 = false;
     } else {
-        passTagRevieved1.innerHTML = 'Password should be between 8 - 20 characters.';
+        passTagRevieved1.innerHTML = ' Password should be between 8 - 20 characters.';
         passTagRevieved1.classList.add('passIncorrect-1');
         passTagRevieved1.classList.remove('passCorrect-1');
         checkPass1 = false;

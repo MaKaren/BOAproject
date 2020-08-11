@@ -110,7 +110,7 @@ input {
     align-items: center;
     width: 94%;
     padding: 10px 15px;
-    margin: 2px 0;
+    margin: 0px 0;
     border-radius: 5px;
     border: 2px solid #ccc;
     font-family: Monaco;
@@ -131,16 +131,18 @@ input {
 }
 
 .fa{
-    left: 3px;
-    top: calc(50% - 0.5em);
     color:white;
 }
 
 .custom-wrap i {
     position: relative;
-    margin-top: -50px;
     margin-left: 94%;
     cursor: pointer;
+}
+
+i {
+    position: absolute;
+    top: -32px;
 }
 
 .forgotpwd {
