@@ -8,6 +8,10 @@
 // AXIOS - this was used for the package but we chose to change it to direct link
 // let axios = require('axios');
 
+// Initialize all the .getElementById for all the inputs fafaeye
+let fafaEyeRecieved1 = document.getElementById('pass-status-1');
+let fafaEyeRecieved2 = document.getElementById('pass-status-2');
+
 // Initialize all the .getElementById for all the inputs
 let formRecieved = document.getElementById('inputForm');
 let userRecieved = document.getElementById('myUsername');
@@ -44,6 +48,8 @@ formRecieved.addEventListener('keyup', testConfirmPassword);
 formRecieved.addEventListener('keyup', testEmail);
 formRecieved.addEventListener('keyup', testConfirmEmail);
 formRecieved.addEventListener('submit', makeAccountConfirmation);
+fafaEyeRecieved1.addEventListener('click', fafaEye1);
+fafaEyeRecieved2.addEventListener('click', fafaEye2);
 
 // .addEventListeners User focus/blur
 userRecieved.addEventListener('focus', function (){
@@ -55,16 +61,28 @@ userRecieved.addEventListener('blur', function (){
 // .addEventListeners Password focus/blur
 passRecieved.addEventListener('focus', function (event){
     document.getElementById('passRequirement').classList.add('show');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPassOnClick');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPass');
 });
 passRecieved.addEventListener('blur', function (){
     document.getElementById('passRequirement').classList.remove('show');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPass');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPassOnClick');
 });
 // .addEventListeners Confirm focus/blur
 confirmRecieved.addEventListener('focus', function (event){
     document.getElementById('confirmRequirement').classList.add('show');
+    fafaEyeRecieved2.classList.add('fafaEyeSignupConfirmOnClick');
+    fafaEyeRecieved2.classList.remove('fafaEyeSignupConfirm');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPassOnClickWithConfirm');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPass');
 });
 confirmRecieved.addEventListener('blur', function (){
     document.getElementById('confirmRequirement').classList.remove('show');
+    fafaEyeRecieved2.classList.add('fafaEyeSignupConfirm');
+    fafaEyeRecieved2.classList.remove('fafaEyeSignupConfirmOnClick');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPass');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPassOnClickWithConfirm');
 });
 // .addEventListeners Email focus/blur
 emailRecieved.addEventListener('focus', function (event){
@@ -280,9 +298,6 @@ function makeAccountConfirmation(event) {
 }
 
 // fafaEye Password
-let fafaEyeRecieved1 = document.getElementById('pass-status-1');
-fafaEyeRecieved1.addEventListener('click', fafaEye1);
-
 function fafaEye1() {
     if (passRecieved.type == 'password') {
         passRecieved.type = 'text';
@@ -296,9 +311,6 @@ function fafaEye1() {
 } 
 
 // fafaEye Confirm Password
-let fafaEyeRecieved2 = document.getElementById('pass-status-2');
-fafaEyeRecieved2.addEventListener('click', fafaEye2);
-
 function fafaEye2() {
     if (confirmRecieved.type == 'password') {
         confirmRecieved.type = 'text';

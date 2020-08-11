@@ -31,16 +31,28 @@ formRecieved.addEventListener('submit', changePassword);
 // .addEventListeners Password focus/blur
 passRecieved.addEventListener('focus', function (event){
     document.getElementById('passRequirement').classList.add('show');
+    fafaEyeRecieved1.classList.add('fafaEyeForgotPassOnClick');
+    fafaEyeRecieved1.classList.remove('fafaEyeForgotPass');
 });
 passRecieved.addEventListener('blur', function (){
     document.getElementById('passRequirement').classList.remove('show');
+    fafaEyeRecieved1.classList.add('fafaEyeForgotPass');
+    fafaEyeRecieved1.classList.remove('fafaEyeForgotPassOnClick');
 });
 // .addEventListeners Confirm focus/blur
 confirmRecieved.addEventListener('focus', function (event){
     document.getElementById('confirmRequirement').classList.add('show');
+    fafaEyeRecieved2.classList.add('fafaEyeForgotConfirmOnClick');
+    fafaEyeRecieved2.classList.remove('fafaEyeForgotConfirm');
+    fafaEyeRecieved1.classList.add('fafaEyeForgotPassOnClickWithConfirm');
+    fafaEyeRecieved1.classList.remove('fafaEyeForgotPass');
 });
 confirmRecieved.addEventListener('blur', function (){
     document.getElementById('confirmRequirement').classList.remove('show');
+    fafaEyeRecieved2.classList.add('fafaEyeForgotConfirm');
+    fafaEyeRecieved2.classList.remove('fafaEyeForgotConfirmOnClick');
+    fafaEyeRecieved1.classList.add('fafaEyeForgotPass');
+    fafaEyeRecieved1.classList.remove('fafaEyeForgotPassOnClickWithConfirm');
 });
 
 // Test for password critera
