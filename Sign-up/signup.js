@@ -7,7 +7,7 @@
 
 // Initalize Live Server
 // let sendToPage = 'http://127.0.0.1:5500/Sign-up/sign-up-successful.html';
-let sendToPage = 'http://127.0.0.1:5500/Sign-up/sign-up-successful.html';
+let sendToPage = 'https://makaren.github.io/BOAproject/Sign-up/sign-up-successful.html';
 
 // AXIOS - this was used for the package but we chose to change it to direct link
 // let axios = require('axios');
@@ -137,7 +137,7 @@ function testUsername(event) {
                     checkUsername = true;
                 } else if (response.data === 'user exists') {
                     // Username is not avaliable
-                    userTagRecieved.innerHTML = 'Username is not avaliable' 
+                    userTagRecieved.innerHTML = ' Username is not avaliable' 
                     userTagRecieved.classList.add('userIncorrect');
                     userTagRecieved.classList.remove('userCorrect');
                     checkUsername = false;
