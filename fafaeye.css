@@ -5,6 +5,7 @@
     Theme: Peaches!
 */
 
+/* Input things and fafaeye */
 input {
     position: relative;
     display: block;
@@ -65,7 +66,7 @@ i {
     top: -263px;
 }
 .fafaEyeSignupPassOnClick {
-    top: -510px;
+    top: -490px;
 }
 .fafaEyeSignupPassOnClickWithConfirm {
     top: -298px;
