@@ -5,6 +5,9 @@
     Theme: Peaches
 */
 
+// Initalize Live Server
+let sendToPage = 'http://127.0.0.1:5500/ForgotPwd/pwdchanged.html';
+
 // Initialize all the .getElementById for all the inputs
 let formRecieved = document.getElementById('inputForm');
 let passRecieved = document.getElementById('myPassword');
@@ -190,15 +193,17 @@ function changePassword (event) {
     event.preventDefault();
     if (!checkPassword && !checkConfirmPassword) {
         accountStatus.innerHTML = 'Password couldn\'t be changed. Please try again.'
-    }
-    if (!checkPassword) {
-        passRecieved.classList.add('inputError');
+        if (!checkPassword) {
+            passRecieved.classList.add('inputError');
+        } else {
+            passRecieved.classList.remove('inputError');
+        }
+        if (!checkConfirmPassword) {
+            confirmRecieved.classList.add('inputError');
+        } else {
+            confirmRecieved.classList.remove('inputError');
+        }
     } else {
-        passRecieved.classList.remove('inputError');
-    }
-    if (!checkConfirmPassword) {
-        confirmRecieved.classList.add('inputError');
-    } else {
-        confirmRecieved.classList.remove('inputError');
+        window.location.replace(sendToPage);
     }
 }

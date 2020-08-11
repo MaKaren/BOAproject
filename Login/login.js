@@ -5,6 +5,8 @@
     Theme: Peaches
 */
 
+// Initalize Live Server
+let sendToPage = 'http://127.0.0.1:5500/Home/home.html';
 
 // Initialize all the .getElementById for all the inputs
 let formRecieved = document.getElementById('inputForm');
@@ -26,7 +28,7 @@ formRecieved.addEventListener('submit', function(event) {
             .then (response => {
                 console.log('Response', response.data);
                 if (response.data == 'username and password ok') {
-                    window.location.replace('http://127.0.0.1:5500/Home/home.html');
+                    window.location.replace(sendToPage);
                 } else {
                     accountStatusRecieved.innerHTML = 'Your username or password is incorrect.';
                 }
