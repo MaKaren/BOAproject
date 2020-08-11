@@ -17,7 +17,6 @@ let accountStatusRecieved = document.getElementById('accountStatus');
 // .addEventListeners
 formRecieved.addEventListener('submit', function(event) {
     event.preventDefault();
-    // if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20) {
         axios.get(`https://dsya-server.herokuapp.com/team1/login/`, {
             auth: {
                 username: userRecieved.value,

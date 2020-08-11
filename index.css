@@ -135,6 +135,7 @@ input {
 }
 
 .custom-wrap i {
+    color: rgb(65, 65, 65);
     position: relative;
     margin-left: 94%;
     cursor: pointer;
@@ -142,7 +143,27 @@ input {
 
 i {
     position: absolute;
-    top: -32px;
+    top: -122px;
+}
+
+.fafaEyeSignupPass {
+    position: absolute;
+    top: -205px;
+}
+
+.fafaEyeSignupConfirm {
+    position: absolute;
+    top: -285px;
+}
+
+.fafaEyeForgotPass {
+    position: absolute;
+    top: -150px;
+}
+
+.fafaEyeForgotConfirm {
+    position: absolute;
+    top: -113px;
 }
 
 .forgotpwd {

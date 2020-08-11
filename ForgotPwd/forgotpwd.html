@@ -23,12 +23,7 @@
             <h2 class="loginTitle">Password Changed</h2>
             <form id="inputForm">  
                 <!-- Password -->
-                <div class="custom-wrap">
-                    <p>
-                        <input id="myPassword" type="password" name="password" placeholder="Password">
-                        <i id="pass-status-1" class="far fa-eye" aria-hidden="true"></i> 
-                    </p>
-                </div>
+                <p><input id="myPassword" type="password" name="password" placeholder="Password"></p>
                 <div id="passRequirement" class="hidden"> 
                     <p class="passHint"> In order to create a strong password, please follow the following steps: </p>
                     <p class="passIncorrect-1" id="passTag-1"> Password should be between 8 - 20 characters. </p>
@@ -37,18 +32,20 @@
                     <p class="passIncorrect-4" id="passTag-4"> Special characters/symbols not allowed: @#*()+={}/?~,.-_ </p>
                 </div>
                 <!-- Confirm Password -->
-                <div class="custom-wrap">
-                    <p>
-                        <input id="myConfirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password">
-                        <i id="pass-status-2" class="far fa-eye" aria-hidden="true"></i> 
-                    </p>
-                </div>
+                <p><input id="myConfirmPassword" type="password" name="confirmPassword" placeholder="Confirm Password"></p>
                 <div id="confirmRequirement" class="hidden">
                     <p class="confirmPassIncorrect" id="confirmPassTag"> Please make sure your password matches. </p>
                 </div>
                 <!-- Submit button -->
                 <div class="submitContent">
                     <p><input id="mySubmit" value="Sign-Up" type="submit"></p>
+                </div>
+                <!-- Password Eye -->
+                <div class="custom-wrap">
+                    <i id="pass-status-1" class="far fa-eye fafaEyeForgotPass" aria-hidden="true"></i> 
+                </div>
+                <div class="custom-wrap">
+                    <i id="pass-status-2" class="far fa-eye fafaEyeForgotConfirm" aria-hidden="true"></i> 
                 </div>
             </form>
             <div>

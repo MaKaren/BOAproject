@@ -83,11 +83,11 @@ emailConfirmRevieved.addEventListener('blur', function () {
 
 // Check for Username
 function testUsername(event) {
-    if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20) {
+    if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20 && userRecieved.value.length != 0) {
         userTagRecieved.classList.add('userIncorrect');
         userTagRecieved.classList.remove('userCorrect');
     }
-    if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20) {
+    if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20 && userRecieved.value.length != 0) {
         // console.log('User Recieved:', userRecieved.value);
         // Axios reads from the back-end
         axios.get(`https://dsya-server.herokuapp.com/team1/checkusername/${userRecieved.value}`)
@@ -109,6 +109,9 @@ function testUsername(event) {
             .catch (error => {
                 console.log('error:', error);
             })
+    } else {
+        userTagRecieved.classList.add('userIncorrect');
+        userTagRecieved.classList.remove('userCorrect');
     }
 }
 
