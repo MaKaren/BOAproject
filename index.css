@@ -106,8 +106,9 @@ div > form > p > label {
 
 input {
     position: relative;
+    display: block;
     align-items: center;
-    width: 75%;
+    width: 94%;
     padding: 10px 15px;
     margin: 2px 0;
     border-radius: 5px;
@@ -130,14 +131,16 @@ input {
 }
 
 .fa{
-    position: absolute;
     left: 3px;
     top: calc(50% - 0.5em);
     color:white;
 }
 
-.custom-wrap {
+.custom-wrap i {
     position: relative;
+    margin-top: -50px;
+    margin-left: 94%;
+    cursor: pointer;
 }
 
 .forgotpwd {
