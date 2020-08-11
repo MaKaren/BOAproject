@@ -8,6 +8,7 @@
 // Initialize all the .getElementById for all the inputs
 let formRecieved = document.getElementById('inputForm');
 let emailRecieved = document.getElementById('myEmail');
+let accountStatus = document.getElementById('accountStatus');
 
 // Initialize all the .getElementById for the restrictions for email
 let emailTagRecieved = document.getElementById('emailTag');
@@ -44,4 +45,8 @@ function testEmail (event){
 // -- Need Roger's Help for forgotten password (EMAIL) --
 function sendToEmail (event) {
     event.preventDefault();
+    if (!checkEmail) {
+        emailRecieved.classList.add('inputError');
+        accountStatus.innerHTML = 'Couldn\'t send to email.'
+    }
 }

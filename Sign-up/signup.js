@@ -8,6 +8,10 @@
 // AXIOS - this was used for the package but we chose to change it to direct link
 // let axios = require('axios');
 
+// Initialize all the .getElementById for all the inputs fafaeye
+let fafaEyeRecieved1 = document.getElementById('pass-status-1');
+let fafaEyeRecieved2 = document.getElementById('pass-status-2');
+
 // Initialize all the .getElementById for all the inputs
 let formRecieved = document.getElementById('inputForm');
 let userRecieved = document.getElementById('myUsername');
@@ -44,6 +48,8 @@ formRecieved.addEventListener('keyup', testConfirmPassword);
 formRecieved.addEventListener('keyup', testEmail);
 formRecieved.addEventListener('keyup', testConfirmEmail);
 formRecieved.addEventListener('submit', makeAccountConfirmation);
+fafaEyeRecieved1.addEventListener('click', fafaEye1);
+fafaEyeRecieved2.addEventListener('click', fafaEye2);
 
 // .addEventListeners User focus/blur
 userRecieved.addEventListener('focus', function (){
@@ -55,39 +61,67 @@ userRecieved.addEventListener('blur', function (){
 // .addEventListeners Password focus/blur
 passRecieved.addEventListener('focus', function (event){
     document.getElementById('passRequirement').classList.add('show');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPassOnClick');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPass');
 });
 passRecieved.addEventListener('blur', function (){
     document.getElementById('passRequirement').classList.remove('show');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPass');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPassOnClick');
 });
 // .addEventListeners Confirm focus/blur
 confirmRecieved.addEventListener('focus', function (event){
     document.getElementById('confirmRequirement').classList.add('show');
+    fafaEyeRecieved2.classList.add('fafaEyeSignupConfirmOnClick');
+    fafaEyeRecieved2.classList.remove('fafaEyeSignupConfirm');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPassOnClickWithConfirm');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPass');
 });
 confirmRecieved.addEventListener('blur', function (){
     document.getElementById('confirmRequirement').classList.remove('show');
+    fafaEyeRecieved2.classList.add('fafaEyeSignupConfirm');
+    fafaEyeRecieved2.classList.remove('fafaEyeSignupConfirmOnClick');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPass');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPassOnClickWithConfirm');
 });
 // .addEventListeners Email focus/blur
 emailRecieved.addEventListener('focus', function (event){
     document.getElementById('emailRequirement').classList.add('show');
+    fafaEyeRecieved2.classList.add('fafaEyeSignupConfirmOnClickWithEmail');
+    fafaEyeRecieved2.classList.remove('fafaEyeSignupConfirm');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPassOnClickWithEmail');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPass');
 });
 emailRecieved.addEventListener('blur', function (){
     document.getElementById('emailRequirement').classList.remove('show');
+    fafaEyeRecieved2.classList.add('fafaEyeSignupConfirm');
+    fafaEyeRecieved2.classList.remove('fafaEyeSignupConfirmOnClickWithEmail');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPass');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPassOnClickWithEmail');
 });
 // .addEventListener Confirm Email focus/blur
 emailConfirmRevieved.addEventListener('focus', function() {
     document.getElementById('emailConfirmRequirement').classList.add('show');
+    fafaEyeRecieved2.classList.add('fafaEyeSignupConfirmOnClickWithEmail');
+    fafaEyeRecieved2.classList.remove('fafaEyeSignupConfirm');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPassOnClickWithEmail');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPass');
 });
 emailConfirmRevieved.addEventListener('blur', function () {
     document.getElementById('emailConfirmRequirement').classList.remove('show');
+    fafaEyeRecieved2.classList.add('fafaEyeSignupConfirm');
+    fafaEyeRecieved2.classList.remove('fafaEyeSignupConfirmOnClickWithEmail');
+    fafaEyeRecieved1.classList.add('fafaEyeSignupPass');
+    fafaEyeRecieved1.classList.remove('fafaEyeSignupPassOnClickWithEmail');
 });
 
 // Check for Username
 function testUsername(event) {
-    if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20) {
+    if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20 && userRecieved.value.length != 0) {
         userTagRecieved.classList.add('userIncorrect');
         userTagRecieved.classList.remove('userCorrect');
     }
-    if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20) {
+    if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20 && userRecieved.value.length != 0) {
         // console.log('User Recieved:', userRecieved.value);
         // Axios reads from the back-end
         axios.get(`https://dsya-server.herokuapp.com/team1/checkusername/${userRecieved.value}`)
@@ -109,6 +143,9 @@ function testUsername(event) {
             .catch (error => {
                 console.log('error:', error);
             })
+    } else {
+        userTagRecieved.classList.add('userIncorrect');
+        userTagRecieved.classList.remove('userCorrect');
     }
 }
 
@@ -273,13 +310,35 @@ function makeAccountConfirmation(event) {
             })
     } else {
         document.getElementById('accountStatus').innerHTML = '*Your account could not be made. Make sure to check all the requirements.'
+        if (!checkUsername) {
+            userRecieved.classList.add('inputError');
+        } else {
+            userRecieved.classList.remove('inputError');
+        }
+        if (!checkPassword) {
+            passRecieved.classList.add('inputError');
+        } else {
+            passRecieved.classList.remove('inputError');
+        }
+        if (!checkConfirmPassword) {
+            confirmRecieved.classList.add('inputError');
+        } else {
+            confirmRecieved.classList.remove('inputError');
+        }
+        if (!checkEmail) {
+            emailRecieved.classList.add('inputError');
+        } else {
+            emailRecieved.classList.remove('inputError');
+        }
+        if (!checkConfirmEmail) {
+            emailConfirmRevieved.classList.add('inputError');
+        } else {
+            emailConfirmRevieved.classList.remove('inputError');     
+        }
     }
 }
 
 // fafaEye Password
-let fafaEyeRecieved1 = document.getElementById('pass-status-1');
-fafaEyeRecieved1.addEventListener('click', fafaEye1);
-
 function fafaEye1() {
     if (passRecieved.type == 'password') {
         passRecieved.type = 'text';
@@ -293,9 +352,6 @@ function fafaEye1() {
 } 
 
 // fafaEye Confirm Password
-let fafaEyeRecieved2 = document.getElementById('pass-status-2');
-fafaEyeRecieved2.addEventListener('click', fafaEye2);
-
 function fafaEye2() {
     if (confirmRecieved.type == 'password') {
         confirmRecieved.type = 'text';

@@ -1,0 +1,102 @@
+/* 
+    @Author Momo, Jaye, Karen
+    08/11/2020
+    Team Name: MKJ
+    Theme: Peaches!
+*/
+
+input {
+    position: relative;
+    display: block;
+    align-items: center;
+    width: 94%;
+    padding: 10px 15px;
+    margin: 0px 0;
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    font-family: Monaco;
+    background-color: white;
+}
+
+.inputError {
+    background-color: rgba(245, 153, 153, 0.678);
+}
+
+#mySubmit {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.87);
+    border: solid 2px;
+    border-color: rgb(168, 174, 199);
+    float: right;
+}
+
+.submitContent {
+    padding-bottom: 45px;
+}
+
+.forgotpwd {
+    font-size: 10px;
+}
+
+.fa{
+    color:white;
+}
+
+.custom-wrap i {
+    color: rgb(65, 65, 65);
+    position: relative;
+    margin-left: 94%;
+    cursor: pointer;
+}
+
+i {
+    position: absolute;
+}
+
+/* Login fafaEye */
+.fafaEyeLoginPass {
+    top: -122px;
+}
+
+/* Signup fafaEye */
+.fafaEyeSignupPass {
+    top: -263px;
+}
+.fafaEyeSignupPassOnClick {
+    top: -490px;
+}
+.fafaEyeSignupPassOnClickWithConfirm {
+    top: -298px;
+}
+.fafaEyeSignupConfirm {
+    top: -226px;
+}
+.fafaEyeSignupConfirmOnClick {
+    top: -262px;
+}
+.fafaEyeSignupPassOnClickWithEmail {
+    top: -297px;
+}
+.fafaEyeSignupConfirmOnClickWithEmail {
+    top: -262px;
+}
+
+
+/* Forgot Password fafaEye */
+.fafaEyeForgotPass {
+    top: -150px;
+}
+.fafaEyeForgotPassOnClick {
+    top: -376px;
+}
+.fafaEyeForgotPassOnClickWithConfirm {
+    top: -186px;
+}
+.fafaEyeForgotConfirm {
+    top: -113px;
+}
+.fafaEyeForgotConfirmOnClick {
+    top: -148px;
+}

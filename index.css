@@ -49,6 +49,11 @@ body {
     text-align: center;
 }
 
+.betaPage {
+    font-size: 10px;
+    text-align: right;
+}
+
 /* Body of all the input ex.] Username, Password, Confirm Password, Email */
 .content {
     margin: 0;
@@ -102,51 +107,6 @@ body {
 
 div > form > p > label {
     font-size: 15px;
-}
-
-input {
-    position: relative;
-    display: block;
-    align-items: center;
-    width: 94%;
-    padding: 10px 15px;
-    margin: 0px 0;
-    border-radius: 5px;
-    border: 2px solid #ccc;
-    font-family: Monaco;
-}
-
-#mySubmit {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.87);
-    border: solid 2px;
-    border-color: rgb(168, 174, 199);
-    float: right;
-}
-
-.submitContent {
-    padding-bottom: 45px;
-}
-
-.fa{
-    color:white;
-}
-
-.custom-wrap i {
-    position: relative;
-    margin-left: 94%;
-    cursor: pointer;
-}
-
-i {
-    position: absolute;
-    top: -32px;
-}
-
-.forgotpwd {
-    font-size: 10px;
 }
 
 /* Formatting all the restriction for the sign up page */
