@@ -5,6 +5,9 @@
     Theme: Peaches
 */
 
+// Initalize Live Server
+let sendToPage = 'http://127.0.0.1:5500/Sign-up/sign-up-successful.html';
+
 // AXIOS - this was used for the package but we chose to change it to direct link
 // let axios = require('axios');
 
@@ -303,7 +306,7 @@ function makeAccountConfirmation(event) {
                 let userGet = JSON.parse(localStorage.user);
                 // console.log('userGet:', userGet);
                 // =============================================
-                window.location.replace('http://127.0.0.1:5500/Sign-up/sign-up-successful.html');
+                window.location.replace(sendToPage);
             })
             .catch(error => {
                 console.log(error);

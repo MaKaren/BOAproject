@@ -5,48 +5,73 @@
     Theme: Peaches
 */
 
+// Initalize Live Server
+let sendToPage = 'http://127.0.0.1:5500/ForgotPwd/forgotpwd.html';
+
 // Initialize all the .getElementById for all the inputs
 let formRecieved = document.getElementById('inputForm');
-let emailRecieved = document.getElementById('myEmail');
+let userRecieved = document.getElementById('myUsername');
 let accountStatus = document.getElementById('accountStatus');
 
 // Initialize all the .getElementById for the restrictions for email
-let emailTagRecieved = document.getElementById('emailTag');
+let userTagRecieved = document.getElementById('userTag');
 
 // Initalize Booleans
-let checkEmail = false;
+let checkUsername = false;
 
 // .addEventListeners
-formRecieved.addEventListener('keyup', testEmail);
+formRecieved.addEventListener('keyup', testUsername);
 formRecieved.addEventListener('submit', sendToEmail);
 
 // .addEventListeners Email focus/blur
-emailRecieved.addEventListener('focus', function (event){
-    document.getElementById('emailRequirement').classList.add('show');
+userRecieved.addEventListener('focus', function (event){
+    document.getElementById('userRequirement').classList.add('show');
 });
-emailRecieved.addEventListener('blur', function (){
-    document.getElementById('emailRequirement').classList.remove('show');
+userRecieved.addEventListener('blur', function (){
+    document.getElementById('userRequirement').classList.remove('show');
 });
 
-// Check for email validation
-function testEmail (event){
-    let regexEmail = /(?:[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/g;
-    if (regexEmail.test(emailRecieved.value)) {
-        emailTagRecieved.classList.add('emailCorrect');
-        emailTagRecieved.classList.remove('emailIncorrect');
-        checkEmail = true;
+// Check for Username
+function testUsername(event) {
+    if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20 && userRecieved.value.length != 0) {
+        userTagRecieved.classList.add('userIncorrect');
+        userTagRecieved.classList.remove('userCorrect');
+    }
+    if (userRecieved.value.length >= 8 && userRecieved.value.length <= 20 && userRecieved.value.length != 0) {
+        // console.log('User Recieved:', userRecieved.value);
+        // Axios reads from the back-end
+        axios.get(`https://dsya-server.herokuapp.com/team1/checkusername/${userRecieved.value}`)
+            .then (response => {
+                if (response.data === 'user exist') {
+                    // Username is avaliable
+                    userTagRecieved.classList.add('userCorrect');
+                    userTagRecieved.classList.remove('userIncorrect');
+                    checkUsername = true;
+                } else if (response.data === 'not found') {
+                    // Username is not avaliable
+                    userTagRecieved.innerHTML = ' Username is not avaliable' 
+                    userTagRecieved.classList.add('userIncorrect');
+                    userTagRecieved.classList.remove('userCorrect');
+                    checkUsername = false;
+                }
+                // console.log('response:', response);
+            })
+            .catch (error => {
+                console.log('error:', error);
+            })
     } else {
-        emailTagRecieved.classList.add('emailIncorrect');
-        emailTagRecieved.classList.remove('emailCorrect');
-        checkEmail = false;
+        userTagRecieved.classList.add('userIncorrect');
+        userTagRecieved.classList.remove('userCorrect');
     }
 }
 
 // -- Need Roger's Help for forgotten password (EMAIL) --
 function sendToEmail (event) {
     event.preventDefault();
-    if (!checkEmail) {
-        emailRecieved.classList.add('inputError');
+    if (!checkUsername) {
+        userRecieved.classList.add('inputError');
         accountStatus.innerHTML = 'Couldn\'t send to email.'
+    } else {
+        window.location.replace(sentToPage);
     }
 }
