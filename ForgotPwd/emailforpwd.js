@@ -83,7 +83,7 @@ function sendToEmail (event) {
         })
         .then (response => {
             console.log('response', response);
-            window.location.replace(sentToPage);
+            window.location.replace(sendToPage);
             // Send to show that to reset password is successful (check email)
         })
         .catch (error => {
