@@ -6,7 +6,8 @@
 */
 
 // Initalize Live Server
-let sendToPage = 'http://127.0.0.1:5500/ForgotPwd/forgotpwd.html';
+// let sendToPage = 'http://127.0.0.1:5500/ForgotPwd/forgotpwd.html';
+let sendToPage = 'https://makaren.github.io/BOAproject/ForgotPwd/forgotpwd.html';
 
 // Initialize all the .getElementById for all the inputs
 let formRecieved = document.getElementById('inputForm');
@@ -42,17 +43,21 @@ function testUsername(event) {
         // Axios reads from the back-end
         axios.get(`https://dsya-server.herokuapp.com/team1/checkusername/${userRecieved.value}`)
             .then (response => {
-                if (response.data === 'user exist') {
+                if (response.data === 'user exists') {
                     // Username is avaliable
                     userTagRecieved.classList.add('userCorrect');
                     userTagRecieved.classList.remove('userIncorrect');
                     checkUsername = true;
+                    // console.log('checkUsername',checkUsername);
+                    console.log('response', response.data);
                 } else if (response.data === 'not found') {
                     // Username is not avaliable
-                    userTagRecieved.innerHTML = ' Username is not avaliable' 
+                    userTagRecieved.innerHTML = ' Username is not found.' 
                     userTagRecieved.classList.add('userIncorrect');
                     userTagRecieved.classList.remove('userCorrect');
                     checkUsername = false;
+                    // console.log('checkUsername',checkUsername);
+                    console.log('response', response.data);
                 }
                 // console.log('response:', response);
             })
@@ -72,6 +77,17 @@ function sendToEmail (event) {
         userRecieved.classList.add('inputError');
         accountStatus.innerHTML = 'Couldn\'t send to email.'
     } else {
-        window.location.replace(sentToPage);
+        axios.put(`https://dsya-server.herokuapp.com/team1/resetemail/`, {
+            username: userRecieved.value,
+            link: `https://makaren.github.io/BOAproject/ForgotPwd/forgotpwd.html?user=${userRecieved.value}`,
+        })
+        .then (response => {
+            console.log('response', response);
+            // window.location.replace(sentToPage);
+            // Send to show that to reset password is successful (check email)
+        })
+        .catch (error => {
+            console.log(error);
+        })
     }
 }

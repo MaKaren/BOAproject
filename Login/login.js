@@ -6,7 +6,8 @@
 */
 
 // Initalize Live Server
-let sendToPage = 'http://127.0.0.1:5500/Home/home.html';
+// let sendToPage = 'http://127.0.0.1:5500/Home/home.html';
+let sendToPage = 'https://makaren.github.io/BOAproject/Home/home.html';
 
 // Initialize all the .getElementById for all the inputs
 let formRecieved = document.getElementById('inputForm');
