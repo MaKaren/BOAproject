@@ -7,7 +7,7 @@
 
 // Initalize Live Server
 // let sendToPage = 'http://127.0.0.1:5500/ForgotPwd/forgotpwd.html';
-let sendToPage = 'https://makaren.github.io/BOAproject/ForgotPwd/forgotpwd.html';
+let sendToPage = 'https://makaren.github.io/BOAproject/ForgotPwd/checkemail.html';
 
 // Initialize all the .getElementById for all the inputs
 let formRecieved = document.getElementById('inputForm');
@@ -83,7 +83,7 @@ function sendToEmail (event) {
         })
         .then (response => {
             console.log('response', response);
-            // window.location.replace(sentToPage);
+            window.location.replace(sentToPage);
             // Send to show that to reset password is successful (check email)
         })
         .catch (error => {
