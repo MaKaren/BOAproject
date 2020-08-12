@@ -29,7 +29,18 @@ formRecieved.addEventListener('submit', function(event) {
             .then (response => {
                 console.log('Response', response.data);
                 if (response.data == 'username and password ok') {
-                    window.location.replace(sendToPage);
+                    axios.put(`https://dsya-server.herokuapp.com/team1/resetemail/`, {
+                        username: userRecieved.value,
+                        link: `https://makaren.github.io/BOAproject/Home/home.html?user=${userRecieved.value}`,
+                    })
+                    .then (response => {
+                        console.log('response', response);
+                        window.location.replace(sendToPage);
+                        // Send to show that to reset password is successful (check email)
+                    })
+                    .catch (error => {
+                        console.log(error);
+                    })
                 } else {
                     accountStatusRecieved.innerHTML = 'Your username or password is incorrect.';
                 }
