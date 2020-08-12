@@ -15,7 +15,6 @@ input {
     margin: 0px 0;
     border-radius: 5px;
     border: 2px solid #ccc;
-    font-family: Monaco;
     background-color: white;
 } 
 
@@ -24,12 +23,14 @@ input {
 }
 
 #mySubmit {
-    width: 100%;
+    width: 30%;
     padding: 10px;
     border: none;
-    background-color: rgba(255, 255, 255, 0.87);
+    /* background-color: rgba(233, 233, 233, 0.87); */
+    background-color: rgba(131, 165, 228, 0.87);
     border: solid 2px;
-    border-color: rgb(168, 174, 199);
+    border-color: rgba(131, 165, 228, 0.87);
+    color: white;
     float: right;
 }
 
@@ -38,7 +39,8 @@ input {
 }
 
 .forgotpwd {
-    font-size: 10px;
+    font-size: 12px;
+    
 }
 
 .fa{
@@ -58,24 +60,24 @@ i {
 
 /* Login fafaEye */
 .fafaEyeLoginPass {
-    top: -122px;
+    top: -120px;
 }
 
 /* Signup fafaEye */
 .fafaEyeSignupPass {
-    top: -263px;
+    top: -258px;
 }
 .fafaEyeSignupPassOnClick {
-    top: -510px;
+    top: -420px;
 }
 .fafaEyeSignupPassOnClickWithConfirm {
-    top: -298px;
+    top: -290px;
 }
 .fafaEyeSignupConfirm {
-    top: -226px;
+    top: -222px;
 }
 .fafaEyeSignupConfirmOnClick {
-    top: -262px;
+    top: -253px;
 }
 .fafaEyeSignupPassOnClickWithEmail {
     top: -297px;
@@ -87,17 +89,17 @@ i {
 
 /* Forgot Password fafaEye */
 .fafaEyeForgotPass {
-    top: -150px;
+    top: -148px;
 }
 .fafaEyeForgotPassOnClick {
-    top: -376px;
+    top: -310px;
 }
 .fafaEyeForgotPassOnClickWithConfirm {
-    top: -186px;
+    top: -182px;
 }
 .fafaEyeForgotConfirm {
-    top: -113px;
+    top: -110px;
 }
 .fafaEyeForgotConfirmOnClick {
-    top: -148px;
+    top: -142px;
 }

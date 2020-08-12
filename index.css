@@ -7,6 +7,10 @@
 
 /* https://color.a11y.com/ */
 
+.centerText {
+    text-align: center;
+}
+
 /* Background Picture */
 body {     
     /* background-image: url(https://i.pinimg.com/564x/77/93/bb/7793bb8d347640af50da70435ea0befd.jpg); */
@@ -16,7 +20,7 @@ body {
     background-size: cover;
     position: relative;
     width: 100%; height: 100vh;
-    font-family: Monaco;
+    font-family: 'Quicksand', sans-serif;
 }
 
 /* Peach Logo */
@@ -28,9 +32,14 @@ body {
     transform: translate(-50%, 0%);
 }
 
+.logoBig {
+    height: 300px; width: 300px; 
+}
+
 .logo-name {
     text-align: center;
-    font-family: Copperplate;
+    font-size: 20;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .credit {
@@ -73,6 +82,8 @@ body {
     animation-fill-mode: forwards;
 }
 
+
+
 @keyframes opening {
     from {top: -50%;}
     to {top: 50%;}
@@ -96,6 +107,7 @@ body {
     color: rgb(65, 65, 65);
     text-align: center;
     margin: 0 auto;
+    font-size: 25px;
 }
 
 .passHint {
@@ -152,4 +164,8 @@ hovering over the box later in the project */
 .emailCorrect::before, 
 .emailConfirmCorrect::before {
     content: '\2713';
+}
+
+.betaPage {
+    text-align: center;
 }
