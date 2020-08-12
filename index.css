@@ -7,6 +7,10 @@
 
 /* https://color.a11y.com/ */
 
+.centerText {
+    text-align: center;
+}
+
 /* Background Picture */
 body {     
     /* background-image: url(https://i.pinimg.com/564x/77/93/bb/7793bb8d347640af50da70435ea0befd.jpg); */
@@ -28,10 +32,14 @@ body {
     transform: translate(-50%, 0%);
 }
 
+.logoBig {
+    height: 300px; width: 300px; 
+}
+
 .logo-name {
     text-align: center;
     font-size: 20;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .credit {
@@ -101,8 +109,6 @@ body {
     margin: 0 auto;
     font-size: 25px;
 }
-
-
 
 .passHint {
     font-size: 15px;

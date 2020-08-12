@@ -39,7 +39,8 @@ input {
 }
 
 .forgotpwd {
-    font-size: 10px;
+    font-size: 12px;
+    
 }
 
 .fa{
@@ -64,19 +65,19 @@ i {
 
 /* Signup fafaEye */
 .fafaEyeSignupPass {
-    top: -263px;
+    top: -258px;
 }
 .fafaEyeSignupPassOnClick {
-    top: -418px;
+    top: -420px;
 }
 .fafaEyeSignupPassOnClickWithConfirm {
-    top: -292px;
+    top: -290px;
 }
 .fafaEyeSignupConfirm {
-    top: -224px;
+    top: -222px;
 }
 .fafaEyeSignupConfirmOnClick {
-    top: -255px;
+    top: -253px;
 }
 .fafaEyeSignupPassOnClickWithEmail {
     top: -297px;
@@ -91,7 +92,7 @@ i {
     top: -148px;
 }
 .fafaEyeForgotPassOnClick {
-    top: -302px;
+    top: -310px;
 }
 .fafaEyeForgotPassOnClickWithConfirm {
     top: -182px;
